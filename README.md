@@ -1,3 +1,3 @@
-<strong><a href="#" target= _blank >Mindra</a> - </strong>Gestão ágil, melhoria contínua;
-<strong><a href="#" target= _blank >Evidya</a> - </strong>Qualidade visível, evidência real;
-<strong><a href="#" target= _blank >Meliora</a> - </strong>Informação que orienta, gestão que transforma.
+<strong><a href="#" target= _blank >Mindra</a> - </strong>Gestão ágil, melhoria constante;<br>
+<strong><a href="#" target= _blank >Evidya</a> - </strong>Qualidade visível, evidência real;<br>
+<strong><a href="#" target= _blank >Meliora</a> - </strong>Informação que orienta, gestão que transforma.<br>
