@@ -1,0 +1,240 @@
+body{
+    text-align: center;
+    background-image: var(--background-gradient);
+}
+main{
+    text-align: justify;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px auto;
+    justify-content: space-around;
+}
+
+h1{
+    margin: 30px auto;
+    font-size: 3em;
+}
+header h2{
+    font-size: 2.5em;
+}
+
+.div-calculator{
+    width: 45%;
+    margin: 10px;
+    padding: 20px 0;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 70%;
+    background-color: var(--transparent-gray);
+}
+
+#div-results{
+    padding: 20px;
+    row-gap: 10px;
+}
+
+#section-list{
+    width: 90%;
+    padding: 0 30px;
+}
+
+h3, .span-validation{
+    font-weight: bold;
+}
+#div-results p{
+    margin: 40px 5px;
+}
+#div-results h3{
+    display: inline;
+}
+
+#span-values, #span-equipment, #span-analyte, #span-batch, #span-expirations-date{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 10px;
+    padding: 0 40px;
+}
+
+#div-values input{
+    width: 70%;
+    cursor: text;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 1px;
+}
+#div-values input:focus{
+    box-shadow: inset 0px 0px 0px 2px;
+    background-color: var(--hover-gray);
+}
+
+#button-add-value, #save-button, .li-buttons, .clear-button{
+    margin: 15px 20px;
+    padding: 10px;
+    width: 90%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    outline: none;
+    box-shadow: 0px 0px 3px 1px;
+}
+.li-buttons{
+    margin: 15px 20px;
+    padding: 10px;
+    width: 100px;
+    font-size: 0.7em;
+}
+
+#button-add-value:hover, #save-button:hover, .li-buttons:hover, .clear-button:hover{
+    box-shadow: 0px 0px 10px 2px;
+    background-color: var(--hover-gray);
+    cursor: pointer;
+}
+#button-add-value:active, #save-button:active, .li-buttons:active, .clear-button:active{
+    box-shadow: inset 0px 0px 5px 2px;
+    background-color: var(--active-gray);
+}
+
+ul{
+    margin: 30px auto;
+    padding: 20px;
+    list-style-type: disc;
+    list-style-position: outside;
+}
+h2{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+li, .outputs{
+    margin: 15px;
+    font-weight: 500;
+    font-size: 1.4em;
+}
+li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#validation{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.span-validation{
+    font-size: 1.4em;
+}
+
+.validation-id{
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    cursor: text;
+    width: 350px;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid var(--standard-black);
+    outline: none;
+}
+
+#save-button{
+    margin: 30px auto;
+    width: 200px;
+}
+
+
+
+/* RESPONSIVIDADE GERAL */
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div-calculator {
+        width: 90%;
+    }
+
+    #section-list {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    #span-values, #span-equipment, #span-analyte, #span-batch, #span-expirations-date {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 15px;
+    }
+
+    #div-values input {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .li-buttons {
+        width: 100%;
+        font-size: 0.9em;
+        margin: 10px 0;
+    }
+
+    #validation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .validation-id {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    #save-button {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    h2, h3 {
+        font-size: 1.2em;
+    }
+
+    .span-validation {
+        font-size: 1.1em;
+    }
+
+    li, .outputs {
+        font-size: 1.1em;
+    }
+
+    #button-add-value, .clear-button {
+        width: 100%;
+        margin: 10px 0;
+        font-size: 1em;
+    }
+
+    .div-calculator {
+        padding: 10px;
+    }
+
+    ul {
+        padding: 10px;
+    }
+}
+

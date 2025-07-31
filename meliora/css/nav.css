@@ -1,0 +1,11 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.identificadores{
+    cursor: default;
+    font-size: 1.2em;
+    font-weight: 500;
+}
