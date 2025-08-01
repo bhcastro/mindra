@@ -1,5 +1,12 @@
+const inputEquipment = document.getElementById('input-equipment');
+const inputAnalyte = document.getElementById('input-analyte');
+const inputBatch = document.getElementById('input-batch');
+const inputExpiration = document.getElementById('input-expiration-date');
 const inputValues = document.getElementById('input-values');
+
 const buttonAddValue = document.getElementById('button-add-value');
+const saveButton =  document.getElementById('save-button');
+
 const listValue = document.getElementById('list-value');
 const spanLastValue = document.getElementById('span-last-value');
 
@@ -16,6 +23,9 @@ const arrayValues = [];
 const arrayDifferences = [];
 
 const errorMessage = 'Digite um valor valido!';
+const blankMessage = 'Existem campos em branco que são de preenchimento obrigatório.';
+
+let sectionPrintResults = document.getElementById('section-print-results');
 
 function getData(){
     let inputValue = inputValues.value.trim();
@@ -60,7 +70,7 @@ function showData(){
     arrayValues.length == 0 ? spanLastValue.textContent = "" : spanLastValue.textContent = `Último valor inserido: ${arrayValues[arrayValues.length - 1]}`;
     arrayValues.length == 0 ? outputTotalAdd.textContent = '-' : outputTotalAdd.textContent = arrayValues.length;
     
-    if (!document.querySelector('.clear-button') && arrayValues.length > 3) {
+    if (!document.querySelector('.clear-button') && arrayValues.length > 2) {
         let buttonClearList = document.createElement('button');
         buttonClearList.textContent = 'Limpar';
         buttonClearList.className = 'clear-button'
@@ -140,9 +150,64 @@ function removeAll(){
     }
 }
 
+function validateInputs(){
+    let equipment = inputEquipment.value.trim();
+    let analyte = inputAnalyte.value.trim();
+    let batch = inputBatch.value.trim();
+    let expiration = inputExpiration.value.trim();
+    if(equipment === "" || analyte === "" || batch === "" || expiration === ""){
+    alert(blankMessage);
+    }else{
+        printPage(equipment, analyte, batch, expiration);
+    }
+}
+
+function printPage(equipment, analyte, batch, expiration){
+    let confirmation = confirm('Deseja efetuar a impressão/salvamento do documento?');
+
+    if (confirmation === true){
+        if (!document.querySelector('.tittle-print-results')){
+            let sectionList = document.getElementById('section-list');
+            let tittlePrintResults = document.createElement('strong');
+            tittlePrintResults.classList.add('tittle-print-results');
+            tittlePrintResults.classList.add('outputs');
+            tittlePrintResults.textContent = 'Valores:';
+            sectionList.prepend(tittlePrintResults);
+            
+        }
+        
+        let sectionPrintResults = document.getElementById('section-print-results');
+        sectionPrintResults.innerHTML = '';
+
+        let printEquipment = document.createElement('div');
+        printEquipment.className = 'outputs';
+        printEquipment.textContent = `Equipamento: ${equipment}`;
+        sectionPrintResults.appendChild(printEquipment);
+
+        let printAnalyte = document.createElement('div');
+        printAnalyte.className = 'outputs';
+        printAnalyte.textContent = `Analito: ${analyte}`;
+        sectionPrintResults.appendChild(printAnalyte);
+
+        let printBatch = document.createElement('div');
+        printBatch.className = 'outputs';
+        printBatch.textContent = `Lote: ${batch}`;
+        sectionPrintResults.appendChild(printBatch);
+
+        let printExpiration = document.createElement('div');
+        printExpiration.className = 'outputs';
+        printExpiration.textContent = `Validade: ${expiration}`;
+        sectionPrintResults.appendChild(printExpiration);
+
+        window.print();
+    }
+}
+
+todayDate();
+
+saveButton.addEventListener('click', validateInputs);
+
+buttonAddValue.addEventListener('click', getData);
 inputValues.addEventListener('keyup', function(e) {
     if (e.key === 'Enter') getData();
 });
-
-buttonAddValue.addEventListener('click', getData);
-todayDate();

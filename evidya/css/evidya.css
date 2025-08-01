@@ -35,17 +35,18 @@ header h2{
 }
 
 #section-list{
+    margin: 75px auto;
     width: 90%;
     padding: 0 30px;
 }
 
-h3, .span-validation{
+.span-validation{
     font-weight: bold;
 }
 #div-results p{
     margin: 40px 5px;
 }
-#div-results h3{
+#div-results strong{
     display: inline;
 }
 
@@ -128,7 +129,6 @@ li{
 #validation{
     display: flex;
     justify-content: space-around;
-    margin: 20px auto;
     padding: 10px;
 }
 
@@ -142,7 +142,7 @@ li{
     text-transform: uppercase;
     padding: 5px 20px;
     cursor: text;
-    width: 350px;
+    width: 200px;
     background-color: transparent;
     box-shadow: none;
     border: none;
@@ -153,6 +153,13 @@ li{
 #save-button{
     margin: 30px auto;
     width: 200px;
+}
+
+#span-last-value{
+    font-size: xx-large;
+    display: flex;
+    margin: 50px auto;
+    justify-content: center;
 }
 
 
@@ -186,13 +193,15 @@ li{
 
     li {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        font-size: 1.8em;
+        font-weight: bolder;
     }
 
     .li-buttons {
-        width: 100%;
+        width: 400px;
         font-size: 0.9em;
-        margin: 10px 0;
+        margin: 20px auto;
     }
 
     #validation {
@@ -208,10 +217,28 @@ li{
     #save-button {
         width: 90%;
     }
+
+    .clear-button{
+        order: -1;
+        font-size: 1.6 em;
+        width: 100%;
+        margin: auto;
+        padding: 15px;
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 600px) {
-    h2, h3 {
+    .section-values{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h2, strong {
         font-size: 1.2em;
     }
 
@@ -220,13 +247,27 @@ li{
     }
 
     li, .outputs {
+        font-weight: bold;
         font-size: 1.1em;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .li-buttons{
+        width: 120px;
+        margin: 15px auto;
+        font-size: 0.8em;
     }
 
     #button-add-value, .clear-button {
         width: 100%;
-        margin: 10px 0;
+        margin: 10px auto;
         font-size: 1em;
+    }
+
+    li .clear-button{
+        order: -1;
+        margin-bottom: 30px;
     }
 
     .div-calculator {
@@ -234,7 +275,17 @@ li{
     }
 
     ul {
+        display: flex;
+        flex-direction: column;
         padding: 10px;
+    }
+
+    #span-last-value{
+        font-size: x-large;
+    }
+
+    li{
+        font-size: 1.5em;
     }
 }
 

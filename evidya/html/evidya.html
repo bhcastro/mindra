@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../index_mindra/css/default_styles.css">
-    <link rel="stylesheet" href="../css/evidya.css">
+    <link rel="stylesheet" href="../../index_mindra/css/default_styles.css" media="screen">
+    <link rel="stylesheet" href="../css/evidya.css" media="screen">
+    <link rel="stylesheet" href="../css/print.css" media="print">
     <title>Evidya - Qualidade visível, evidência real</title>
 </head>
 <body>
@@ -17,52 +18,53 @@
             <section id="section-values">
                 <h2>Adicione pelo menos 20 pontos.</h2>
                 <span id="span-equipment">
-                    <h3><label for="input-equipment">Equipamento: </label></h3>
-                    <input type="text" name="input-equipment" id="input-equipment">
+                    <label for="input-equipment"><strong>Equipamento:</strong> </label>
+                    <input required type="text" name="input-equipment" id="input-equipment">
                 </span>
                 <span id="span-analyte">
-                    <h3><label for="input-analyte">Analito: </label></h3>
-                    <input type="text" name="input-analyte" id="input-analyte">
+                    <label for="input-analyte"><strong>Analito:</strong> </label>
+                    <input required type="text" name="input-analyte" id="input-analyte">
                 </span>
                 <span id="span-batch">
-                    <h3><label for="input-batch">Lote: </label></h3>
-                    <input type="text" name="input-batch" id="input-batch">
+                    <label for="input-batch"><strong>Lote:</strong> </label>
+                    <input required type="text" name="input-batch" id="input-batch">
                 </span>
                 <span id="span-expirations-date">
-                    <h3><label for="input-expiration-date">Validade: </label></h3>
-                    <input type="date" name="input-expiration-date" id="input-expiration-date">
+                    <label for="input-expiration-date"><strong>Validade:</strong> </label>
+                    <input required type="date" name="input-expiration-date" id="input-expiration-date">
                 </span>
                 <span id="span-values">
-                    <h3><label for="input-values">Valores: </label></h3>
+                    <label for="input-values"><strong>Valores:</strong> </label>
                     <input type="text" name="input-values" id="input-values">
-                
                 </span>
                 <button id="button-add-value">Adicionar</button>
             </section>
+            <span class="outputs" id="span-last-value"></span>
+        </div>
+        <div class="div-calculator" id="div-results">
+            <section>
+                <section id="results">
+                    <h2>Resultados:</h2>
+                    <p><strong>Total adicionado: </strong><span class="outputs" id="output-total-add">-</span></p>
+                    <p><strong>Média: </strong><span class="outputs" id="output-media">-</span></p>
+                    <p><strong>Desvio Padrão (DP):</strong><span class="outputs" id="output-sd">-</span></p>
+                    <p><strong>Coeficiente de Variação (CV): </strong><span class="outputs" id="output-cv">-</span></p>
+                    <p><strong>1DP: </strong><span class="outputs" id="output-1sd">-</span></p></p>
+                    <p><strong>2DP: </strong><span class="outputs" id="output-2sd">-</span></p></p>
+                    <p><strong>3DP: </strong><span class="outputs" id="output-3sd">-</span></p></p>
+                    <span class="outputs" id="output-date"></span>
+                </section>
+            </section>
+            <section id="section-print-results"></section>
             <section id="section-list">
-                <span class="outputs" id="span-last-value"></span>
                 <ul id="list-value">
                 </ul>
             </section>
         </div>
-        <div class="div-calculator" id="div-results">
-            <h2>Resultados:</h2>
-            <p><h3>Total adicionado: </h3><span class="outputs" id="output-total-add">-</span></p>
-
-            <p><h3>Média: </h3><span class="outputs" id="output-media">-</span></p>
-
-            <p><h3>Desvio Padrão (DP):</h3><span class="outputs" id="output-sd">-</span></p>
-
-            <p><h3>Coeficiente de Variação (CV): </h3><span class="outputs" id="output-cv">-</span></p>
-            <p><h3>1DP: </h3><span class="outputs" id="output-1sd">-</span></p></p>
-            <p><h3>2DP: </h3><span class="outputs" id="output-2sd">-</span></p></p>
-            <p><h3>3DP: </h3><span class="outputs" id="output-3sd">-</span></p></p>
-            <span class="outputs" id="output-date"></span>
-        </div>
     </main>
     <aside id="validation">
-        <span class="span-validation"><label for="validation-name">Validado por:  </label><input type="text" required name="validation-name" class="validation-id" id="validation-name"></span>
-        <span class="span-validation"><label for="verifier-name">Conferido por:  </label><input type="text" required name="verifier-name" class="validation-id" id="verifier-name"></span>
+        <span class="span-validation"><label for="validation-name"><strong>Validado por: </strong></label><input type="text" required name="validation-name" class="validation-id" id="validation-name"></span>
+        <span class="span-validation"><label for="verifier-name"><strong>Conferido por: </strong></label><input type="text" required name="verifier-name" class="validation-id" id="verifier-name"></span>
     </aside>
     <button id="save-button">Salvar</button>
     <script src="../js/evidya.js"></script>

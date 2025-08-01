@@ -30,3 +30,7 @@
     
     --contrast-blue: #202d79;
 }
+
+.hide{
+    display: none;
+}
