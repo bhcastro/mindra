@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Mindra - Ecossistema</title>
+</head>
+
+<body>
+    <div id="header"></div>
+    <main>
+        <section class="intro">
+            <h2>Bem-vindo ao ecossistema Mindra</h2>
+            <p>Ferramentas e soluções para gestão, qualidade e melhoria contínua.</p>
+        </section>
+
+        <section class="tools">
+            <div class="tool-card">
+                <h3>Meliora</h3>
+                <p>Gestão ágil, melhoria constante.</p>
+                <a href="#">Acessar Ferramentas</a>
+            </div>
+
+            <div class="tool-card">
+                <h3>Evidya</h3>
+                <p>Qualidade visível, evidência real.</p>
+                <a href="#">Acessar</a>
+            </div>
+
+            <!-- Espaço para futuras ferramentas -->
+            <div class="tool-card">
+                <h3>Nova Ferramenta</h3>
+                <p>Em breve novas soluções para apoiar sua equipe.</p>
+                <a href="#">Saiba mais</a>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+
+    <script>
+        async function loadHTML(id, file) {
+            const res = await fetch(file);
+            document.getElementById(id).innerHTML = await res.text();
+    }
+loadHTML("header", "header.html");
+loadHTML("footer", "footer.html");
+    </script>
+
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBm82-F9GUF3dPRjimKfhdHdxfo7y-xQxQ",
+    authDomain: "mindra-2e038.firebaseapp.com",
+    projectId: "mindra-2e038",
+    storageBucket: "mindra-2e038.firebasestorage.app",
+    messagingSenderId: "682305550222",
+    appId: "1:682305550222:web:a18e3dfc9fa57eead196df",
+    measurementId: "G-PMVBPQ52RB"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+</body>
+
+</html>

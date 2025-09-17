@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../index_mindra/css/index.css">
+    <title>Mindra - Ecossistema</title>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <main>
+        <section class="intro">
+            <h2>Meliora</h2>
+            <p>Gestão ágil, melhoria constante.</p>
+
+        <section class="tools" id="interanalista">
+            <div class="tool-card">
+                <h3>Interanalista</h3>
+                <p class="normal-link"><u>Por que realizar o interanalista?</u></p>
+                <a href="meliora-interanalista.html" target="_blank" rel="noopener noreferrer">Acesse a ferramenta</a>
+            </div>
+
+            <div class="tool-card">
+                <h3>Nova Ferramenta</h3>
+                <p>Em breve novas soluções para apoiar sua equipe.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer">Saiba mais</a>
+            </div>
+
+            <!-- Espaço para futuras ferramentas -->
+            <div class="tool-card">
+                <h3>Nova Ferramenta</h3>
+                <p>Em breve novas soluções para apoiar sua equipe.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer">Saiba mais</a>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+
+
+        <script>
+        async function loadHTML(id, file) {
+            const res = await fetch(file);
+            document.getElementById(id).innerHTML = await res.text();
+    }
+loadHTML("header", "../../index_mindra/html/header.html");
+loadHTML("footer", "../../index_mindra/html/footer.html");
+    </script>
+</body>
+
+</html>
