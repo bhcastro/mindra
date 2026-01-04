@@ -10,7 +10,7 @@
     <title>Meliora - Informação que orienta, gestão que transforma.</title>
 </head>
 <body>
-    <header>
+    <!-- <header>
         <h1>Meliora</h1>
         <h2>Interanalista</h2>
         <div id="div-realizar">
@@ -23,8 +23,8 @@
         <span class="identificadores" id="unidade" name="Unidade"></span>
         <span class="identificadores" id="data" name="Data"></span>
     </nav>
-    </header>
-    <main class="ocultar">
+    </header> -->
+    <main class="">
         <section id="urinalise">
             <div id="div-sedimentos">
                 <h2>Sedimentoscopia</h2>
@@ -52,19 +52,29 @@
         <section id="hematologia">
             <div id="div-diferencial">
                 <h2>Contagem diferencial</h2>
-                    <div class="seletor">
-                        <input type="text" class="celula nome__celulas" placeholder="Digite a célula:" autocomplete="off">
-                        <input type="text" class="celula valor__celulas" placeholder="Digite a quantidade:" autocomplete="off">
-                        <button class="botoes" id="botao-add-celula">+</button>
-                        <ul class="lista__celulas">
-                        </ul>
-                        <p id="output-diferencial"></p>
-                    </div>
-                    <p class="paragrafo-observacoes">
-                        <label for="input-obs-hemato">Observações:</label>
-                        <input class="inputs" type="text" name="input-obs-hemato" id="input-obs-hemato" autocomplete="off"><button class="botoes"id="botao-add-obs-hemato">+</button></p>
-                    </p>
-                    <ol id="lista-obs-hemato"></ol>
+                <button id="botao-div-diferencial-inserir-celulas" class="botoes-div-diferencial botoes">Inserir células</button>
+                <button id="botao-div-diferencial-habilitar-contador" class="botoes-div-diferencial botoes">Habilitar contador</button>
+                <section id="section-contador" class="ocultar">
+                    <h2>Contador</h2>
+                    <ul id="lista-contador"></ul>
+                </section>
+                <section id="section-diferencial" class="ocultar">
+                    <h2>Contagem Manual</h2>
+                        <div class="seletor">
+                            <input type="text" class="celula nome__celulas" placeholder="Digite a célula:" autocomplete="off">
+                            <input type="text" class="celula valor__celulas" placeholder="Digite a quantidade:" autocomplete="off">
+                            <button class="botoes" id="botao-add-celula">+</button>
+                            <ul class="lista__celulas">
+                            </ul>
+                            <p id="output-diferencial"></p>
+                        </div>
+                        <p class="paragrafo-observacoes">
+                            <label for="input-obs-hemato">Observações:</label>
+                            <input class="inputs" type="text" name="input-obs-hemato" id="input-obs-hemato" autocomplete="off"><button class="botoes"id="botao-add-obs-hemato">+</button></p>
+                        </p>
+                        <ol id="lista-obs-hemato"></ol>
+                </section>
+                <button id="botao-div-diferencial-voltar" class="botoes-div-diferencial botoes ocultar">Voltar</button>
             </div>
             <div id="div-plaquetas">
                 <h2>Contagem de plaquetas</h2>

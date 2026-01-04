@@ -38,7 +38,7 @@ ol{
     list-style-position: inside;
 }
 
-#div-diferencial, #div-plaquetas, #div-sedimentos, #div-reticulocitos{
+#div-plaquetas, #div-sedimentos, #div-reticulocitos, #div-diferencial{
     display: flex;
     flex-direction: column;
     justify-content: center;

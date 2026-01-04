@@ -1,3 +1,8 @@
+const sectionContador = document.getElementById('section-contador');
+const sectionDiferencial = document.getElementById('section-diferencial');
+const botaoHabilitarContador = document.getElementById('botao-div-diferencial-habilitar-contador');
+const botaoInserirCelulas = document.getElementById('botao-div-diferencial-inserir-celulas');
+const botaoVoltar = document.getElementById('botao-div-diferencial-voltar');
 const botaoAdicionarCelula = document.getElementById('botao-add-celula');
 const botaoRemoverCelula = document.querySelector('.botao-remover');
 const botaoImprimir = document.getElementById('botao-imprimir');
@@ -85,4 +90,27 @@ function somarCelulas(){
     valorTotalCelulas.classList.add('mostrar-total');
     }
 }
+
 botaoAdicionarCelula.addEventListener('click', adicionarCelula);
+
+botaoHabilitarContador.addEventListener('click', ()=>{
+    sectionContador.classList.remove('ocultar');
+    botaoInserirCelulas.classList.add('ocultar');
+    botaoHabilitarContador.classList.add('ocultar');
+    botaoVoltar.classList.remove('ocultar');
+})
+
+botaoInserirCelulas.addEventListener('click', ()=>{
+    sectionDiferencial.classList.remove('ocultar');
+    botaoInserirCelulas.classList.add('ocultar');
+    botaoHabilitarContador.classList.add('ocultar');
+    botaoVoltar.classList.remove('ocultar');
+})
+
+botaoVoltar.addEventListener('click', ()=>{
+    sectionContador.classList.add('ocultar');
+    sectionDiferencial.classList.add('ocultar');
+    botaoInserirCelulas.classList.remove('ocultar');
+    botaoHabilitarContador.classList.remove('ocultar');
+    botaoVoltar.classList.add('ocultar');
+})
