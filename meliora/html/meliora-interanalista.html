@@ -52,21 +52,21 @@
         <section id="hematologia">
             <div id="div-diferencial">
                 <h2>Contagem diferencial</h2>
-                <button id="botao-div-diferencial-inserir-celulas" class="botoes-div-diferencial botoes">Inserir células</button>
-                <button id="botao-div-diferencial-habilitar-contador" class="botoes-div-diferencial botoes">Habilitar contador</button>
+                <button id="botao-div-diferencial-inserir-celulas" class="botoes-div-diferencial botoes">Digitar contagem</button>
+                <button id="botao-div-diferencial-habilitar-contador" class="botoes-div-diferencial botoes">Iniciar contagem</button>
                 <section id="section-contador" class="ocultar">
                     <h2>Contador</h2>
                     <ul id="lista-contador"></ul>
                 </section>
                 <section id="section-diferencial" class="ocultar">
                     <h2>Contagem Manual</h2>
-                        <div class="seletor">
-                            <input type="text" class="celula nome__celulas" placeholder="Digite a célula:" autocomplete="off">
-                            <input type="text" class="celula valor__celulas" placeholder="Digite a quantidade:" autocomplete="off">
+                        <div id="seletor">
+                            <input type="text" class="celula nome__celulas" placeholder="Célula" autocomplete="off">
+                            <input type="number" class="celula valor__celulas" placeholder="Quantidade" autocomplete="off">
                             <button class="botoes" id="botao-add-celula">+</button>
-                            <ul class="lista__celulas">
+                            <ul id="lista__celulas">
                             </ul>
-                            <p id="output-diferencial"></p>
+                            <p id="output-global"></p>
                         </div>
                         <p class="paragrafo-observacoes">
                             <label for="input-obs-hemato">Observações:</label>

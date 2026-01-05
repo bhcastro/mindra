@@ -30,7 +30,7 @@
 
 #botao-remover{
     width: 40px;
-    padding: 2px 0;
+    padding: 5px;
 }
 
 #botao-realizar{
@@ -56,6 +56,19 @@ ol .botao-limpar{
 .botoes-div-diferencial{
     margin: 10px auto;
     padding: 15px;
+    width: 370px;
+    font-size: 1.3em;
+}
+
+#botao-div-diferencial-voltar{
+    font-size: 1.2em;
+    padding: 15px;
+    width: 150px;
+}
+
+#botao-limpar-celulas{
     width: fit-content;
-    font-size: 1.5em;
+    margin: 15px auto;
+    padding: 10px 15px;
+    font-size: 1.1em;
 }

@@ -8,6 +8,14 @@
 @import url(../css/footer.css);
 @import url(../css/media-queries.css);
 
+/* Chrome, Edge, Safari */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
 .ocultar{
     display: none;
 } 
@@ -56,7 +64,7 @@ h2 {
     font-size: 2em;
 }
 
-.seletor{
+#seletor{
     text-align: center;
     margin: 20px auto;
 }
