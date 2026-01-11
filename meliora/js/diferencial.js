@@ -3,16 +3,18 @@ const sectionContador = document.getElementById('section-contador');
 const sectionDiferencial = document.getElementById('section-diferencial');
 const botaoHabilitarContador = document.getElementById('botao-div-diferencial-habilitar-contador');
 const botaoInserirCelulas = document.getElementById('botao-div-diferencial-inserir-celulas');
-const botaoVoltar = document.getElementById('botao-div-diferencial-voltar');
 const botaoAdicionarCelula = document.getElementById('botao-add-celula');
 const botaoRemoverCelula = document.querySelector('.botao-remover');
+const botaoZerarContagem = document.createElement('button');
 const botaoImprimir = document.getElementById('botao-imprimir');
+const botaoVoltarDiferencial = document.createElement('button');
 const celulas = document.getElementById('lista__celulas');
 
 const listaDeCelulas = [];
 const contagemGlobal = [];
 
-const valorSuperior = 'Valor de células ultrapassado, reveja sua contagem!'
+const mensagemSuperior = document.createElement('p');
+const valorSuperior = 'Valor de células ultrapassado, reveja sua contagem!';
 const nomeCelula = 'Insira uma célula válida!';
 const valorCelula = 'Não é possível inserir células sem valor!';
 
@@ -46,29 +48,25 @@ function removerCelula(celula){
     mostrarCelulas();
     somarCelulas();
     inputCelula.focus();
+    let totalTemp = contagemGlobal.reduce((a, b) => a + b, 0);
+    console.log(totalTemp);
     if(listaDeCelulas.length === 0){
         celulas.innerHTML = '';
         valorTotalCelulas.textContent = '';
         botaoImprimir.classList.add('ocultar');
+        mensagemSuperior.remove();
+    }else if(mensagemSuperior && totalTemp < 100){
+        mensagemSuperior.remove();
     }
 }
 
 function mostrarCelulas(){
-    let totalTemp = contagemGlobal.reduce((a, b) => a + b, 0);
-    console.log(totalTemp);
-    if(totalTemp >= 5){
-        const botaoLimparCelulas = document.createElement('button');
-        botaoLimparCelulas.textContent = 'Limpar contagem';
-        botaoLimparCelulas.classList.add('botoes');
-        botaoLimparCelulas.id = 'botao-limpar-celulas';
-        divSeletor.appendChild(botaoLimparCelulas);
-        botaoLimparCelulas.addEventListener('click', () => {
-            listaDeCelulas.length = 0;
-            contagemGlobal.length = 0;
-            valorTotalCelulas.textContent = '';
-            botaoLimparCelulas.remove();
-            mostrarCelulas();
-        });
+    if(contagemGlobal.length == 3){
+        botaoZerarContagem.textContent = 'Limpar contagem';
+        botaoZerarContagem.classList.add('botoes');
+        botaoZerarContagem.id = 'botao-limpar-celulas';
+        divSeletor.appendChild(botaoZerarContagem);
+        botaoZerarContagem.addEventListener('click', zerarContagem);
     }
     let novaCelula = '';
     listaDeCelulas.forEach((celula, index) =>{novaCelula = novaCelula += `<li class="diferencial">${celula}: ${contagemGlobal[index]}<input type="button" class="botoes" id="botao-remover" value="-" onclick="removerCelula(${index})"></li>`
@@ -93,13 +91,11 @@ function somarCelulas(){
         botaoImprimir.classList.add('ocultar');
         valorTotalCelulas.classList.add('valor-errado');
         valorTotalCelulas.classList.remove('valor-correto');
-        let mensagemSuperior = document.createElement('span');
+        mensagemSuperior.id = 'mensagem-superior';
         mensagemSuperior.textContent = valorSuperior;
         mensagemSuperior.classList.add('mensagem-superior');
         divSeletor.appendChild(mensagemSuperior);
-
     }else{
-        botaoAdicionarCelula.classList.remove('ocultar');
         botaoImprimir.classList.add('ocultar');
         valorTotalCelulas.classList.remove('valor-errado');
         valorTotalCelulas.classList.remove('valor-correto');
@@ -109,26 +105,38 @@ function somarCelulas(){
     }
 }
 
+function zerarContagem(){
+    listaDeCelulas.length = 0;
+    contagemGlobal.length = 0;
+    botaoAdicionarCelula.classList.remove('ocultar');
+    valorTotalCelulas.textContent = '';
+    botaoZerarContagem.remove();
+    mensagemSuperior.remove();
+    mostrarCelulas();
+}
+
 botaoAdicionarCelula.addEventListener('click', adicionarCelula);
 
-botaoHabilitarContador.addEventListener('click', ()=>{
-    sectionContador.classList.remove('ocultar');
-    botaoInserirCelulas.classList.add('ocultar');
-    botaoHabilitarContador.classList.add('ocultar');
-    botaoVoltar.classList.remove('ocultar');
-})
-
 botaoInserirCelulas.addEventListener('click', ()=>{
+    criarBotaoVoltarDiferencial()
     sectionDiferencial.classList.remove('ocultar');
     botaoInserirCelulas.classList.add('ocultar');
     botaoHabilitarContador.classList.add('ocultar');
-    botaoVoltar.classList.remove('ocultar');
+    botaoVoltarDiferencial.classList.remove('ocultar');
 })
 
-botaoVoltar.addEventListener('click', ()=>{
-    sectionContador.classList.add('ocultar');
+botaoVoltarDiferencial.addEventListener('click', ()=>{
+    zerarContagem();
     sectionDiferencial.classList.add('ocultar');
     botaoInserirCelulas.classList.remove('ocultar');
     botaoHabilitarContador.classList.remove('ocultar');
-    botaoVoltar.classList.add('ocultar');
+    botaoVoltarDiferencial.remove();
 })
+
+
+function criarBotaoVoltarDiferencial(){
+    botaoVoltarDiferencial.id = 'botao-div-diferencial-voltar';
+    botaoVoltarDiferencial.classList.add('botoes');
+    botaoVoltarDiferencial.textContent = 'Voltar';
+    sectionDiferencial.appendChild(botaoVoltarDiferencial);
+}

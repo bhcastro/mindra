@@ -8,6 +8,12 @@
 @import url(../css/footer.css);
 @import url(../css/media-queries.css);
 
+:root{
+    --transparent-green: rgba(0, 255, 149, 0.3);
+    --transparent-red: rgba(255, 17, 0, 0.6);
+    --transparent-blue: rgba(25, 0, 255, 0.418);
+}
+
 /* Chrome, Edge, Safari */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -15,6 +21,9 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+*{
+    outline: none;
+}
 
 .ocultar{
     display: none;
@@ -24,6 +33,17 @@ main {
     background-image: var(--background-gradient);
     padding: 50px 0;
     text-align: center;
+}
+
+#span-div-diferencial, #paragrafo-saida-global{
+    margin: 20px;
+    font-weight: 600;
+    font-size: 1.7em;
+}
+
+#paragrafo-saida-eritroblastos{
+    margin: 20px;
+    font-size: 1.4em;
 }
 
 p{
@@ -37,6 +57,7 @@ li{
 }
 
 ul{
+    margin: 40px auto;
     list-style-type: none;
     list-style-position: inside;
 }
@@ -98,4 +119,12 @@ label{
     margin: auto 5px;
     font-weight: 500;
     font-size: 1.2em;
+}
+
+#section-contador:focus{
+    background-color: var(--transparent-green);
+}
+
+.section-contador-no-focus{
+    background-color: var(--transparent-red);
 }

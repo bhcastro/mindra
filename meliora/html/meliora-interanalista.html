@@ -52,11 +52,13 @@
         <section id="hematologia">
             <div id="div-diferencial">
                 <h2>Contagem diferencial</h2>
-                <button id="botao-div-diferencial-inserir-celulas" class="botoes-div-diferencial botoes">Digitar contagem</button>
                 <button id="botao-div-diferencial-habilitar-contador" class="botoes-div-diferencial botoes">Iniciar contagem</button>
-                <section id="section-contador" class="ocultar">
-                    <h2>Contador</h2>
+                <button id="botao-div-diferencial-inserir-celulas" class="botoes-div-diferencial botoes">Digitar contagem</button>
+                <section id="section-contador" class="ocultar section-contador-no-focus" tabindex="0">
+                    <span id="span-div-diferencial"></span>
                     <ul id="lista-contador"></ul>
+                    <p id="paragrafo-saida-eritroblastos"></p>
+                    <p id="paragrafo-saida-global"></p>
                 </section>
                 <section id="section-diferencial" class="ocultar">
                     <h2>Contagem Manual</h2>
@@ -74,7 +76,6 @@
                         </p>
                         <ol id="lista-obs-hemato"></ol>
                 </section>
-                <button id="botao-div-diferencial-voltar" class="botoes-div-diferencial botoes ocultar">Voltar</button>
             </div>
             <div id="div-plaquetas">
                 <h2>Contagem de plaquetas</h2>
@@ -109,6 +110,7 @@
         <p id="paragrafo-github">Desenvolvido por Bruno Castro&nbsp;<a target="_blank" href="https://github.com/bhcastro/"><img src="../img/github.png" alt="GitHub" class="github"></a></p>
     </footer>
     <script src="../js/diferencial.js"></script>
+    <script src="../js/contador.js"></script>
     <script src="../js/calculos-serie-vermelha.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/observacoes.js"></script>

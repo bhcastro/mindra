@@ -60,12 +60,15 @@ ol .botao-limpar{
     font-size: 1.3em;
 }
 
-#botao-div-diferencial-voltar{
+#botao-div-diferencial-voltar, #botao-div-contador-voltar{
+    margin: 40px auto;
+    padding: 10px;
     font-size: 1.2em;
-    padding: 15px;
-    width: 150px;
+    width: 120px;
 }
-
+#botao-div-contador-voltar, #botao-limpar-celulas{
+    display: block;
+}
 #botao-limpar-celulas{
     width: fit-content;
     margin: 15px auto;
