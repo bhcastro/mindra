@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/contador-avulso.css">
+    <title>Contador de células</title>
+</head>
+
+<body>
+    <main>
+        <section id="caption-section" class="section-card">
+            <h2 id="caption-tittle">Legenda:</h2>
+            <ul id="caption-list">
+                <li class="li-caption"><strong>A: </strong>Segmentados</li>
+                <li class="li-caption"><strong>S: </strong>Linfócitos</li>
+                <li class="li-caption"><strong>D: </strong>Monócitos</li>
+                <li class="li-caption"><strong>V: </strong>Bastonetes</li>
+                <li class="li-caption"><strong>C: </strong>Meta</li>
+                <li class="li-caption"><strong>X: </strong>Mielo</li>
+                <li class="li-caption"><strong>Z: </strong>Promielo</li>
+                <li class="li-caption"><strong>Q: </strong>Basófilo</li>
+                <li class="li-caption"><strong>W: </strong>Eosinófilo</li>
+                <li class="li-caption"><strong>E: </strong>Linf. Atp.</li>
+                <li class="li-caption"><strong>R: </strong>Blasto</li>
+                <li class="li-caption"><strong>G: </strong>Eritroblastos</li>
+                <li class="li-caption"><strong>B: </strong>Macroplaquetas</li>
+                <li class="li-caption"><strong>N: </strong>Plaq. gigantes</li>
+            </ul>
+        </section>
+
+        <section id="count-section" tabindex="0">
+            <h2>Contador</h2>
+            <span id="count-section-span"></span>
+            <ul id="output-list"></ul>
+            <div id="eritroblastos"></div>
+            <div id="total"></div>
+            <div id="macroplaquetas"></div>
+            <div id="plaquetas-gigantes"></div>
+        </section>
+
+        <section id="calc-section" class="section-card ocultar">
+            <h2 id="calc-tittle">Correção de leucócitos</h2>
+            <p>
+                <input type="number" id="input-leuco" placeholder="Leucócitos totais">
+            </p>
+            <span id="output-leuco">teste</span>
+        </section>
+    </main>
+
+    <script src="../js/contador-avulso.js"></script>
+</body>
+</html>
