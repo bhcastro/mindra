@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/contador-mielograma.css">
+    <title>Mielograma parcial</title>
+</head>
+
+<body>
+    <main>
+        <div id="div-contagem">
+            <section id="caption-section">
+                <h2 id="caption-tittle">Legenda:</h2>
+                <ul id="caption-list">
+                    <li class="li-caption"><strong>A: </strong>Segmentados</li>
+                    <li class="li-caption"><strong>S: </strong>Linfócitos</li>
+                    <li class="li-caption"><strong>D: </strong>Monócitos</li>
+                    <li class="li-caption"><strong>V: </strong>Bastonetes</li>
+                    <li class="li-caption"><strong>C: </strong>Meta</li>
+                    <li class="li-caption"><strong>X: </strong>Mielo</li>
+                    <li class="li-caption"><strong>Z: </strong>Promielo</li>
+                    <li class="li-caption"><strong>Q: </strong>Basófilo</li>
+                    <li class="li-caption"><strong>W: </strong>Eosinófilo</li>
+                    <li class="li-caption"><strong>E: </strong>Linf. Atp.</li>
+                    <li class="li-caption"><strong>R: </strong>Blasto</li>
+                    <li class="li-caption"><strong>B: </strong>Macroplaquetas</li>
+                    <li class="li-caption"><strong>N: </strong>Plaq. gigantes</li>
+                </ul>
+            </section>
+            <section id="count-section" tabindex="0">
+                <h2>Contador</h2>
+                <span id="count-section-span"></span>
+                <ul id="output-list"></ul>
+                <div id="eritroblastos"></div>
+                <div id="total"></div>
+                <div id="macroplaquetas"></div>
+                <div id="plaquetas-gigantes"></div>
+            </section>
+        </div>
+        <div id="div-observacoes">
+            <fieldset>
+                <legend><h3>Observações:</h3></legend>
+                <section id="obs-serie-branca" class="observacao-section">
+                    <h4>Série branca:</h4>
+                    <h4>Celularidade:</h4>
+                    <ul>
+                        <li><input type="radio" name="Celularidade" id="hipocelular"><label for="hipocelular">Hipocelular</label></li>
+                        <li><input type="radio" name="Celularidade" id="preservada"><label for="preservada">Preservada</label></li>
+                        <li><input type="radio" name="Celularidade" id="hipercelular"><label for="hipercelular">Hipercelular</label></li>
+                    </ul>
+                </section>
+                <section id="obs-serie-vermelha" class="observacao-section"></section>
+                <section id="obs-serie-plaquetaria" class="observacao-section"></section>
+            </fieldset>
+            <aside>
+                <h2>Hipótese Diagnóstica:</h2>
+                <textarea id="hipotese-diagnostica" cols="185" rows="10" style="resize: none;">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem sequi ea sapiente, repellendus eum quibusdam soluta sit minima neque, id officia facilis iste eius! Maiores perferendis beatae quam itaque aliquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, beatae, nisi voluptatum ipsam ducimus quia ipsa quis impedit cumque enim officiis aliquam amet corrupti ea. Itaque laudantium suscipit asperiores saepe? Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, animi vitae dignissimos et optio non nostrum maiores exercitationem, placeat repudiandae qui laudantium explicabo voluptatibus, corporis cum! Fugiat laboriosam mollitia nam? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae deleniti fugit, magni voluptatum a iure sequi accusamus esse sunt tenetur quisquam nemo molestias velit dignissimos quis ratione amet veritatis adipisci?"</textarea>
+            </aside>
+        </div>
+        <div id="div-assinatura">
+            <h3>Exame laudado por:</h3>
+            <span id="output-assinatura-png"><img src="../img/logo_mindra.png" alt="Assinatura do Médico" width="100px" height="100px"></span>
+            <span id="output-assinatura-nome">Dr. Fulano - CRM: 10203040</span>
+        </div>
+    </main>
+
+    <script src="../js/contador-mielograma.js"></script>
+</body>
+</html>
