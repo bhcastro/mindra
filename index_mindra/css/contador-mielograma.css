@@ -5,6 +5,21 @@
     font-family: "Ubuntu", sans-serif;
 }
 
+:root {
+    --fundo-padrao: #FFFFFF;
+    --fundo-secundario: #F5F7FA;
+    --azul-principal: #2F6FDB;
+    --azul-secundario: #3A73B8;
+    --verde-sucesso: #97FC6F;
+    --verde-secundario: #6BB04F;
+    --verde-terciario: #405239;
+    --amarelo-aviso: #F2C94C;
+    --vermelho-alerta: #E5533D;
+    --linhas: #E4E7EC;
+    --texto-primario: #1F2933;
+    --texto-secundario: #6B7280;
+}
+
 h2 {
     font-size: 2.5em;
 }
@@ -118,23 +133,35 @@ ul {
     font-weight: bolder;
 }
 
-#clear-button {
-    padding: 5px;
-    font-size: 1em;
-    font-weight: bold;
-    outline: none;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: #ffdd00;
+button {
+    margin: 25px auto;
+    padding: 7px;
     cursor: pointer;
+    width: 95%;
+    text-align: center;
+    font-size: 1em;
+    outline: none;
+    border: 1px solid var(--texto-secundario);
+    border-radius: 7px;
 }
-
-#clear-button:hover {
-    background-color: #ffaa00;
+button:hover {
+    background-color: var(--linhas);
 }
-
-#clear-button:active {
-    background-color: #ff7b00;
+button:active {
+    background-color: var(--texto-secundario);
+    color: var(--fundo-padrao);
+    font-weight: bold;
+}
+#botao-sair {
+    margin: 15px;
+    padding: 7px;
+    cursor: pointer;
+    width: 80px;
+    text-align: center;
+    font-size: 1em;
+    outline: none;
+    border: 1px solid var(--texto-secundario);
+    border-radius: 7px;
 }
 
 #calc-section {

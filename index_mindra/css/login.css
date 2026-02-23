@@ -1,0 +1,106 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: var(--fundo-padrao);
+    font-family: Poppins, sans-serif;
+    cursor: default;
+}
+
+:root {
+    --fundo-padrao: #FFFFFF;
+    --fundo-secundario: #F5F7FA;
+    --azul-principal: #2F6FDB;
+    --azul-secundario: #3A73B8;
+    --verde-sucesso: #97FC6F;
+    --verde-secundario: #6BB04F;
+    --verde-terciario: #405239;
+    --amarelo-aviso: #F2C94C;
+    --vermelho-alerta: #E5533D;
+    --linhas: #E4E7EC;
+    --texto-primario: #1F2933;
+    --texto-secundario: #6B7280;
+}
+
+.ocultar {
+    display: none;
+}
+
+body {
+    background-color: var(--fundo-secundario);
+    padding: 50px;
+    height: 100%;
+    text-align: center;
+}
+
+#form-login {
+    text-align: center;
+    width: 30%;
+    margin: auto;
+    padding: 0px 30px;
+    border: 2px solid var(--linhas);
+    border-radius: 10px;
+}
+
+h3,
+span,
+input {
+    margin: 5px auto;
+}
+
+h3 {
+    font-size: 1.4em;
+    color: var(--texto-primario)
+}
+
+input {
+    margin: 10px;
+    padding: 4px;
+    width: 130px;
+    text-align: center;
+    font-size: 1em;
+    outline: none;
+    border: 1px solid var(--texto-secundario);
+    border-radius: 7px;
+    cursor: text;
+}
+
+input:focus {
+    background-color: var(--linhas);
+    border-width: 2px;
+}
+
+button, #botao-entrar {
+    margin: 25px auto;
+    padding: 7px;
+    cursor: pointer;
+    width: 95%;
+    text-align: center;
+    font-size: 1em;
+    outline: none;
+    border: 1px solid var(--texto-secundario);
+    border-radius: 7px;
+}
+
+button:hover, #botao-entrar:hover {
+    background-color: var(--linhas)
+}
+
+button:active, #botao-entrar:active {
+    background-color: var(--texto-secundario);
+    color: var(--fundo-padrao);
+    font-weight: bold;
+}
+
+span {
+    color: var(--texto-secundario);
+}
+
+a {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--texto-secundario);
+}

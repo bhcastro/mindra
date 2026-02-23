@@ -6,6 +6,9 @@ const countSectionSpan = document.getElementById('count-section-span');
 const calcSection = document.getElementById('calc-section');
 const totalCelsOutput = document.getElementById('total');
 const outputList = document.getElementById('output-list');
+const botaoSair = document.getElementById('botao-sair');
+const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
+
 const defaultKeys = {
     "A": "Segmentados",
     "S": "Linfócitos",
@@ -31,6 +34,13 @@ let totalMacroPlt = 0;
 let totalPltGigante = 0
 let celListCount = {};
 
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        alert('Efetue login para realizar a liberação.');
+        window.location.href = 'login.html';
+    }
+});
+
 countSectionSpan.innerHTML = 'Clique para habilitar';
 
 countSection.addEventListener('focus', () => {
@@ -39,6 +49,11 @@ countSection.addEventListener('focus', () => {
 countSection.addEventListener("keydown", (event) => {
     const key = event.key.toUpperCase();
     verifyPressedKey(key);
+});
+
+botaoSair.addEventListener('click', () => {
+    localStorage.removeItem('loggedUser');
+    window.location.href = 'login.html';
 });
 
 function verifyPressedKey(key) {
