@@ -7,14 +7,14 @@
 }
 
 :root {
-    --background: #f4f7fb;
-    --card: rgba(255, 255, 255, 0.85);
-    --border: #e2e8f0;
-    --text: #1e293b;
-    --text-light: #64748b;
-    --primary: #2563eb;
-    --success: #10b981;
-    --danger: #ef4444;
+    --branco-padrao: #f4f7fb;
+    --branco-cards: rgba(255, 255, 255, 0.85);
+    --bordas: #e2e8f0;
+    --azul-texto: #1e293b;
+    --texto-secundario: #64748b;
+    --azul-padrao: #2563eb;
+    --verde-successo: #10b981;
+    --vermelho-perigo: #ef4444;
 }
 
 

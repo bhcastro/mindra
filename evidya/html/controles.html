@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/controles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <main>
+        <div id="div-background" class="ocultar"></div>
+        <aside class="menu-lateral">
+            <button id="btn-fechar-menu" class="ocultar botoes-menu">✕</button>
+            <button id="btn-menu" class="botoes-menu">>></button>
+            <div class="" id="div-info-usuario">
+                <div class="outputs" id="avatar-usuario">BH</div>
+                <div class="outputs" id="div-nome-usuario"><strong id="nome-usuario">Bruno Castro</strong></div>
+                <div class="outputs" id="cargo-usuario">Dev</div>
+            </div>
+            <div id="div-nav">
+                <nav>
+                    <a href="dashboard.html">Home</a>
+                    <a href="controles.html">Controles</a>
+                    <a href="#">Estatísticas</a>
+                    <a href="#">Interanalista</a>
+                    <a href="#">Configuração</a>
+                    <a href="#">Sair</a>
+                </nav>
+            </div>
+        </aside>
+        <header>
+            <div id="div-cabecalho">
+                <h1>Gerenciamento de Controles</h1>
+                <p>Analise seus controles de forma rápida e eficaz.</p>
+            </div>
+            <div id="div-seletor-setores">
+                <p>Selecione o setor:</p>
+                <select name="seletor-setores" id="seletor-setores">
+                    <option value="selecione o setor" selected disabled>Selecione</option>
+                    <option value="hematologia">Hematologia</option>
+                    <option value="bioquimica">Bioquímica</option>
+                    <option value="imunologia">Imunologia</option>
+                    <option value="urinálise">Urinálise</option>
+                </select>
+            </div>
+        </header>
+        <div id="div-seletor-equipamentos" class="div-seletores-controles">
+            <h2>Selecione o equipamento:</h2>
+            <select name="seletor-equipamentos" id="seletor-equipamentos" class="seletores-controles">
+                <option value="selecione" selected disabled>Selecione</option>
+                <option value="equipamento1">Equipamento 1</option>
+                <option value="equipamento2">Equipamento 2</option>
+                <option value="equipamento3">Equipamento 3</option>
+                <option value="equipamento4">Equipamento 4</option>
+                <option value="equipamento5">Equipamento 5</option>
+                <option value="equipamento5">Equipamento 5</option>
+            </select>
+        </div>
+        <div id="div-seletor-controle" class="div-seletores-controles">
+            <h2>Selecione o lote:</h2>
+            <select name="seletor-lotes" id="seletor-lotes" class="seletores-controles">
+                <option value="selecione" selected disabled>Selecione</option>
+                <option value="lote1">Lote 1</option>
+                <option value="lote2">Lote 2</option>
+                <option value="lote3">Lote 3</option>
+            </select>
+        </div>
+        <div id="div-seletor-analitos" class="div-seletores-controles">
+            <h2>Selecione o analito:</h2>
+            <select name="div-seletor-analitos" id="seletor-analitos" class="seletores-controles">
+                <option value="selecione" selected disabled>Selecione</option>
+                <option value="analito1">Analito 1</option>
+                <option value="analito2">Analito 2</option>
+                <option value="analito3">Analito 3</option>
+            </select>
+        </div>
+        <section id="section-controles">
+            <div id="div-dados" class="cards">
+                <h2>Dados do controle:</h2>
+                <p><strong>Setor:</strong> <span id="output-setor-controle">Hematologia</span></p>
+                <p><strong>Equipamento:</strong><span id="output-equipamento-controle">Equipamento 1</span></p>
+                <p><strong>Lote:</strong><span id="output-lote-controle">Lote 1</span></p>
+                <p><strong>Início:</strong><span id="output-inicio-controle">01/01/2023</span></p>
+                <p><strong>Validade:</strong><span id="output-validade-controle">01/01/2023</span></p>
+            </div>
+            <div id="div-inserir-valores" class="cards">
+                <h2>Inserir valores do controle:</h2>
+                <form id="form-inserir-valores">
+                    <label for="controle-n1">Controle nível 1: <input type="text" id="controle-n1" name="controle-n1"
+                            required></label>
+                    <label for="controle-n2">Controle nível 2: <input type="text" id="controle-n2" name="controle-n2"
+                            required></label>
+                    <label for="controle-n3">Controle nível 3: <input type="text" id="controle-n3" name="controle-n3"
+                            required></label>
+                </form>
+                <button type="submit" id="btn-salvar">Salvar</button>
+            </div>
+            <div id="div-resultados-parciais" class="cards">
+                <h2>Resultados parciais:</h2>
+                <div id="resultados">
+                    <div id="div-media" class="classe-resultados">
+                        <h2>Média</h2>
+                        <span id="media">62</span>
+                    </div>
+                    <div id="div-cv" class="classe-resultados">
+                        <h2>CV (%)</h2>
+                        <span id="cv">59</span>
+                    </div>
+                    <div id="div-dp" class="classe-resultados">
+                        <h2>DP</h2>
+                        <span id="dp">34</span>
+                        <h2>DP</h2>
+                        <span id="dp">34</span>
+                        <h2>DP</h2>
+                        <span id="dp">34</span>
+                    </div>
+                    <div id="div-total-pontos" class="classe-resultados ">
+                        <h2>Total de Pontos</h2>
+                        <span id="total-pontos">80</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../js/main.js"></script>
+    <script src="../js/controles.js"></script>
+</body>
+
+</html>
