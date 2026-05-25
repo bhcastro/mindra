@@ -1,6 +1,6 @@
 @import url('./dashboard.css');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,22 +8,23 @@
 }
 
 
-.cards{
+.cards {
     background-color: var(--sombra-hover);
     padding: 25px;
     border: 1px solid var(--bordas);
     border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     height: 100%;
     text-align: center;
 }
-.cards:hover{
+
+.cards:hover {
     transition: 0.2s ease-in-out;
     transform: translateY(-10px);
     box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
 }
 
-header{
+header {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -31,35 +32,41 @@ header{
     padding: 25px 40px;
     background-color: var(--sombra-hover);
 }
-header h1, header p{
+
+header h1,
+header p {
     padding: 5px;
     margin: 5px;
 }
-header p{
+
+header p {
     color: var(--texto-secundario);
     font-size: 1.2rem;
 }
 
-h1{
+h1 {
     color: var(--azul-texto);
     font-size: 2.2rem;
 }
-h2{
+
+h2 {
     color: var(--azul-texto);
     font-size: 1.5rem;
 }
 
-#div-seletor-setores{
+#div-seletor-setores {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-#div-seletor-setores p{
+
+#div-seletor-setores p {
     color: var(--azul-texto);
     font-size: 1.1rem;
     font-weight: 500;
 }
-select{
+
+select {
     padding: 5px;
     border: none;
     outline: none;
@@ -69,13 +76,14 @@ select{
     font-size: 1rem;
     font-weight: bold;
 }
-option{
+
+option {
     background-color: var(--sombra-hover);
     color: var(--azul-texto);
     font-weight: bold;
 }
 
-#section-controles{
+#section-controles {
     display: grid;
     grid-template-columns: 50% 1fr;
     gap: 25px;
@@ -83,11 +91,12 @@ option{
     align-items: start;
     background-color: var(--sombra-hover);
 }
-#section-controles > :last-child:nth-child(odd){
+
+#section-controles> :last-child:nth-child(odd) {
     grid-column: 1 / -1;
 }
 
-.div-seletores-controles{
+.div-seletores-controles {
     font-size: 1.3rem;
     display: flex;
     justify-content: center;
@@ -95,12 +104,13 @@ option{
     padding: 10px;
     background-color: var(--sombra-hover);
 }
-.seletores-controles{
+
+.seletores-controles {
     color: var(--azul-texto);
     font-size: 1.2rem;
 }
 
-#form-inserir-valores{
+#form-inserir-valores {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -109,13 +119,13 @@ option{
     padding: 20px;
 }
 
-label{
+label {
     color: var(--azul-texto);
     font-size: 1.1rem;
     font-weight: 500;
 }
 
-input{
+input {
     border: none;
     outline: none;
     border-radius: 8px;
@@ -127,11 +137,12 @@ input{
     font-weight: 500;
     font-size: 1rem;
 }
-input:focus{
+
+input:focus {
     background-color: var(--sombra-hover);
 }
 
-#btn-salvar{
+#btn-salvar {
     width: 100%;
     text-align: center;
     padding: 8px;
@@ -146,40 +157,42 @@ input:focus{
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }
-#btn-salvar:hover{
+
+#btn-salvar:hover {
     background-color: var(--azul-texto);
     color: var(--branco-padrao);
     transition: 0.5s ease-in-out;
 }
 
-#div-resultados-parciais{
+.div-resultados {
     background-color: var(--sombra-hover);
 }
 
-#resultados{
+#resultados-n1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     margin-top: 25px;
 }
 
-#div-dp{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+#div-dp-n1, #div-dp-n2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.classe-resultados{
+.classe-resultados {
     display: flex;
     flex-direction: column;
     padding: 20px 0;
     background-color: var(--branco-cards);
     border: 1px solid var(--bordas);
     border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
-.classe-resultados span{
+
+.classe-resultados span {
     margin-top: 10px;
     color: var(--azul-padrao);
     font-size: 2.5rem;
@@ -188,12 +201,13 @@ input:focus{
 
 
 
-#div-dados{
+#div-dados {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-#div-dados p{
+
+#div-dados p {
     display: flex;
     justify-content: space-between;
     color: var(--azul-texto);

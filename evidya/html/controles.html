@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./dashboard.css">
-    <link rel="stylesheet" href="./controles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/controles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 </head>
@@ -40,10 +40,10 @@
                 <p>Selecione o setor:</p>
                 <select name="seletor-setores" id="seletor-setores">
                     <option value="selecione o setor" selected disabled>Selecione</option>
-                    <option value="hematologia">Hematologia</option>
-                    <option value="bioquimica">Bioquímica</option>
-                    <option value="imunologia">Imunologia</option>
-                    <option value="urinálise">Urinálise</option>
+                    <option value="Hematologia">Hematologia</option>
+                    <option value="Bioquimica">Bioquímica</option>
+                    <option value="Imunologia">Imunologia</option>
+                    <option value="Urinálise">Urinálise</option>
                 </select>
             </div>
         </header>
@@ -51,21 +51,20 @@
             <h2>Selecione o equipamento:</h2>
             <select name="seletor-equipamentos" id="seletor-equipamentos" class="seletores-controles">
                 <option value="selecione" selected disabled>Selecione</option>
-                <option value="equipamento1">Equipamento 1</option>
-                <option value="equipamento2">Equipamento 2</option>
-                <option value="equipamento3">Equipamento 3</option>
-                <option value="equipamento4">Equipamento 4</option>
-                <option value="equipamento5">Equipamento 5</option>
-                <option value="equipamento5">Equipamento 5</option>
+                <option value="Equipamento 1">Equipamento 1</option>
+                <option value="Equipamento 2">Equipamento 2</option>
+                <option value="Equipamento 3">Equipamento 3</option>
+                <option value="Equipamento 4">Equipamento 4</option>
+                <option value="Equipamento 5">Equipamento 5</option>
             </select>
         </div>
         <div id="div-seletor-controle" class="div-seletores-controles">
             <h2>Selecione o lote:</h2>
             <select name="seletor-lotes" id="seletor-lotes" class="seletores-controles">
                 <option value="selecione" selected disabled>Selecione</option>
-                <option value="lote1">Lote 1</option>
-                <option value="lote2">Lote 2</option>
-                <option value="lote3">Lote 3</option>
+                <option value="Lote 1">Lote 1</option>
+                <option value="Lote 2">Lote 2</option>
+                <option value="Lote 3">Lote 3</option>
             </select>
         </div>
         <div id="div-seletor-analitos" class="div-seletores-controles">
@@ -80,9 +79,10 @@
         <section id="section-controles">
             <div id="div-dados" class="cards">
                 <h2>Dados do controle:</h2>
-                <p><strong>Setor:</strong> <span id="output-setor-controle">Hematologia</span></p>
-                <p><strong>Equipamento:</strong><span id="output-equipamento-controle">Equipamento 1</span></p>
-                <p><strong>Lote:</strong><span id="output-lote-controle">Lote 1</span></p>
+                <p><strong>Setor:</strong> <span id="output-setor-controle">-</span></p>
+                <p><strong>Equipamento:</strong><span id="output-equipamento-controle">-</span></p>
+                <p><strong>Lote:</strong><span id="output-lote-controle">-</span></p>
+                <p><strong>Analito:</strong><span id="output-analito-controle">-</span></p>
                 <p><strong>Início:</strong><span id="output-inicio-controle">01/01/2023</span></p>
                 <p><strong>Validade:</strong><span id="output-validade-controle">01/01/2023</span></p>
             </div>
@@ -93,41 +93,40 @@
                             required></label>
                     <label for="controle-n2">Controle nível 2: <input type="text" id="controle-n2" name="controle-n2"
                             required></label>
-                    <label for="controle-n3">Controle nível 3: <input type="text" id="controle-n3" name="controle-n3"
-                            required></label>
                 </form>
                 <button type="submit" id="btn-salvar">Salvar</button>
             </div>
-            <div id="div-resultados-parciais" class="cards">
-                <h2>Resultados parciais:</h2>
-                <div id="resultados">
-                    <div id="div-media" class="classe-resultados">
+            <div class="div-resultados cards">
+                <h2>Nível 1:</h2>
+                <div id="resultados-n1">
+                    <div class="classe-resultados">
                         <h2>Média</h2>
-                        <span id="media">62</span>
+                        <span id="media-n1">-</span>
                     </div>
-                    <div id="div-cv" class="classe-resultados">
+                    <div id="div-cv-n1" class="classe-resultados">
                         <h2>CV (%)</h2>
-                        <span id="cv">59</span>
+                        <span id="cv-n1">59</span>
                     </div>
-                    <div id="div-dp" class="classe-resultados">
-                      <div id="div-dp-1" class="div-dps">
-                        <h2>1 DP</h2>
-                        <span id="dp-1">31</span>
-                      </div>
-                      <div id="div-dp-2" class="div-dps">
-                        <h2>2 DP</h2>
-                        <span id="dp-2">32</span>
-                      </div>
-                        <div id="div-dp-3" class="div-dps">
-                        <h2>3 DP</h2>
-                        <span id="dp-3">33</span>
-                      </div>                        
+                    <div id="div-dp-n1" class="classe-resultados">
+                        <div id="div-dp-1-n1" class="div-dps">
+                            <h2>1 DP</h2>
+                            <span id="dp-1-n1">-</span>
+                        </div>
+                        <div id="div-dp-2-n1" class="div-dps">
+                            <h2>2 DP</h2>
+                            <span id="dp-2-n1">-</span>
+                        </div>
+                        <div id="div-dp-3-n1" class="div-dps">
+                            <h2>3 DP</h2>
+                            <span id="dp-3-n1">-</span>
+                        </div>
                     </div>
-                    <div id="div-total-pontos" class="classe-resultados ">
+                    <div id="div-total-pontos-n1" class="classe-resultados ">
                         <h2>Total de Pontos</h2>
-                        <span id="total-pontos">80</span>
+                        <span id="total-pontos-n1">80</span>
                     </div>
                 </div>
+                
             </div>
         </section>
     </main>
