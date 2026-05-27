@@ -86,7 +86,7 @@ option {
 #section-controles {
     display: grid;
     grid-template-columns: 50% 1fr;
-    gap: 25px;
+    gap: 30px;
     padding: 25px;
     align-items: start;
     background-color: var(--sombra-hover);
@@ -168,7 +168,18 @@ input:focus {
     background-color: var(--sombra-hover);
 }
 
-#resultados-n1 {
+.titulo-parciais{
+    color: var(--azul-texto);
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+.parciais-controle{
+    margin: 40px auto;
+}
+
+.resultados-controle{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
@@ -193,9 +204,10 @@ input:focus {
 }
 
 .classe-resultados span {
-    margin-top: 10px;
+    margin: 10px;
+    padding: 10px;
     color: var(--azul-padrao);
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
