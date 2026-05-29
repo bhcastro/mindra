@@ -1,5 +1,25 @@
 // Declarações
 
+
+const outputs = {
+    N1: {
+        outputMedia: document.getElementById('media-n1'),
+        outputDp1: document.getElementById('dp-1-n1'),
+        outputDp2: document.getElementById('dp-2-n1'),
+        outputDp3: document.getElementById('dp-3-n1'),
+        outputCv: document.getElementById('cv-n1'),
+        outputTotalPontos: document.getElementById('total-pontos-n1')
+    },
+    N2: {
+        outputMedia: document.getElementById('media-n2'),
+        outputDp1: document.getElementById('dp-1-n2'),
+        outputDp2: document.getElementById('dp-2-n2'),
+        outputDp3: document.getElementById('dp-3-n2'),
+        outputCv: document.getElementById('cv-n2'),
+        outputTotalPontos: document.getElementById('total-pontos-n2')
+    }
+}
+
 const inputSetor = document.getElementById('seletor-setores');
 const outputSetor = document.getElementById('output-setor-controle');
 
@@ -19,27 +39,15 @@ const inputControleN1 = document.getElementById('input-controle-n1');
 const inputControleN2 = document.getElementById('input-controle-n2');
 
 const listaControleN1 = [];
-let listaDpN1 = [];
 
 const listaControleN2 = [];
-let listaDpN2 = [];
-
-const outputDp1N1 = document.getElementById('dp-1-n1');
-const outputDp2N1 = document.getElementById('dp-2-n1');
-const outputDp3N1 = document.getElementById('dp-3-n1');
-const outputCvN1 = document.getElementById('cv-n1');
-const outputTotalPontosN1 = document.getElementById('total-pontos-n1');
-
-const outputDp1N2 = document.getElementById('dp-1-n2');
-const outputDp2N2 = document.getElementById('dp-2-n2');
-const outputDp3N2 = document.getElementById('dp-3-n2');
-const outputCvN2 = document.getElementById('cv-n2');
-const outputTotalPontosN2 = document.getElementById('total-pontos-n2');
 
 const btnSalvar = document.getElementById('btn-salvar');
 btnSalvar.addEventListener('click', pegarValores);
 
-// Exibição dos dados selecionados
+
+
+// Coleta de dados
 
 inputSetor.addEventListener('change', () => {
     let setor = inputSetor.value;
@@ -62,51 +70,50 @@ inputAnalito.addEventListener('change', () => {
 });
 
 
-// Cálculos
-
 function pegarValores() {
-    let nivel1 = inputControleN1.value.replace(",", ".");
-    let nivel2 = inputControleN2.value.replace(",", ".");
+    let nivel1 = parseFloat(inputControleN1.value.replace(",", "."));
+    let nivel2 = parseFloat(inputControleN2.value.replace(",", "."));
 
-    if (nivel1.trim() === "" || nivel2.trim() === "") {
-        alert("Por favor, preencha ambos os campos de controle.");
-        return;
-    } else if (isNaN(nivel1) || isNaN(nivel2)) {
+    if (isNaN(nivel1) || isNaN(nivel2)) {
         alert("Por favor, insira apenas números nos campos de controle.");
         return;
     } else {
-        listaControleN1.push(Number(nivel1));
-        listaControleN2.push(Number(nivel2));
+        listaControleN1.push(parseFloat(nivel1));
+        listaControleN2.push(parseFloat(nivel2));
         inputControleN1.value = "";
         inputControleN2.value = "";
-        if (listaControleN1.length >= 2 && listaControleN2.length >= 2) {
-            calcularMedia(listaControleN1, outputMediaN1);
-            calcularMedia(listaControleN2, outputMediaN2);
+
+        if (listaControleN1.length >= 3 && listaControleN2.length >= 3) {
+            const resultadosN1 = calcularDados(listaControleN1);
+            const resultadosN2 = calcularDados(listaControleN2);
+            exibirResultados(outputs.N1, resultadosN1);
+            exibirResultados(outputs.N2, resultadosN2);
         }
     }
 }
 
-function calcularMedia(listaControle, outputMedia) {
-    let mediaListaControle = listaControle.reduce((acc, valor) => acc + parseFloat(valor), 0) / listaControle.length;
-    mediaListaControle = mediaListaControle.toFixed(2);
-    outputMedia.textContent = mediaListaControle.replace(".", ",");
-    calcularDp(mediaListaControle, listaControle, listaDpN1);
-    calcularDP(mediaListaControle, listaControle, listaDpN2);
+// Cálculos
+
+
+function calcularDados(lista) {
+    const media = lista.reduce((acc, valor) => acc + parseFloat(valor), 0) / lista.length;
+    let somaVariancia = 0;
+    for (let i = 0; i < lista.length; i++) {
+        somaVariancia += (lista[i] - media) ** 2;
+    }
+    const dp = Math.sqrt(somaVariancia / (lista.length - 1));
+    const cv = (dp / media) * 100;
+    return { media, dp, dp2: dp * 2, dp3: dp * 3, cv, totalPontos:lista.length };
 }
 
-function calcularDp(media, listaControle, listaDp) {
-    listaDp.length = 0;
 
-    for (let i = 0; i < listaControle.length; i++) {
-        let valorDiferenca = (listaControle[i] - media) ** 2;
-        listaDp.push(valorDiferenca);
-    }
-    let mediaDiferenca = listaDp.reduce((acc, i) => acc + i, 0) / (listaDp.length - 1);
-    let dpFinal = Math.sqrt(mediaDiferenca).toFixed(2);
+// Exibir resultados
 
-    if (listaControle.length >= 3) {
-        outputDp1N1.textContent = dpFinal.replace(".", ",");
-        outputDp2N1.textContent = (dpFinal * 2).toFixed(2).replace(".", ",");
-        outputDp3N1.textContent = (dpFinal * 3).toFixed(2).replace(".", ",");
-    }
+function exibirResultados(outputs, resultados) {
+    outputs.outputMedia.textContent = resultados.media.toFixed(2).replace(".", ",");
+    outputs.outputDp1.textContent = resultados.dp.toFixed(2).replace(".", ",");
+    outputs.outputDp2.textContent = resultados.dp2.toFixed(2).replace(".", ",");
+    outputs.outputDp3.textContent = resultados.dp3.toFixed(2).replace(".", ",");
+    outputs.outputCv.textContent = resultados.cv.toFixed(2).replace(".", ",");
+    outputs.outputTotalPontos.textContent = resultados.totalPontos;
 }
