@@ -44,9 +44,7 @@ function imprimir(){
     const footerImpressao = 'Versão para impressão do formulário de interanalista, conheça a versão completa e mais produtos acessando: www.mindra.com.br';
     paragrafoFooter.textContent = footerImpressao;
     window.print();
-    if (paragrafoFooter.innerText === footerImpressao) {
-      paragrafoFooter.innerText = footerPadrao;
-    }
+    paragrafoFooter.innerText == footerImpressao ? paragrafoFooter.innerText = footerPadrao : paragrafoFooter.innerText = footerImpressao;
 }
 
 botaoRealizar.addEventListener('click', iniciar);
