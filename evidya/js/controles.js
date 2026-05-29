@@ -1,6 +1,5 @@
 // Declarações
 
-
 const outputs = {
     N1: {
         outputMedia: document.getElementById('media-n1'),
@@ -44,6 +43,10 @@ const listaControleN2 = [];
 
 const btnSalvar = document.getElementById('btn-salvar');
 btnSalvar.addEventListener('click', pegarValores);
+
+
+let dataAtual = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+document.getElementById('output-data-controle').textContent = dataAtual;
 
 
 
