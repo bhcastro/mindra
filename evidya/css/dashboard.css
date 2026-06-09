@@ -75,12 +75,14 @@
 }
 
 .menu-lateral {
+    display: flex;
+  flex-direction: column;
     position: fixed;
     top: 0px;
     left: 0px;
     z-index: 1000;
     width: 200px;
-    height: fit-content;
+    height: 100vh;
     border: 2px solid black;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -90,13 +92,17 @@
     transition: transform 0.5s ease-in-out;
 }
 
+#div-nav{
+  overflow-y: auto;
+}
+
 .menu-lateral-ativo {
     transform: translateX(0);
 }
 
 .botoes-menu {
     position: absolute;
-    top: 2px;
+    top: 1px;
     left: 200px;
     width: 35px;
     height: 35px;
