@@ -36,44 +36,30 @@
                 <h1>Gerenciamento de Controles</h1>
                 <p>Analise seus controles de forma rápida e eficaz.</p>
             </div>
-            <div id="div-seletor-setores">
-                <p>Selecione o setor:</p>
+        </header>
+        <hr>
+        <div id="div-seletor-setores" class="div-seletores">
+                <h2>Selecione o setor:</h2>
                 <select name="seletor-setores" id="seletor-setores">
                     <option value="selecione o setor" selected disabled>Selecione</option>
-                    <option value="Hematologia">Hematologia</option>
-                    <option value="Bioquimica">Bioquímica</option>
-                    <option value="Imunologia">Imunologia</option>
-                    <option value="Urinálise">Urinálise</option>
                 </select>
             </div>
-        </header>
-        <div id="div-seletor-equipamentos" class="div-seletores-controles">
+        <div id="div-seletor-equipamentos" class="div-seletores">
             <h2>Selecione o equipamento:</h2>
             <select name="seletor-equipamentos" id="seletor-equipamentos" class="seletores-controles">
                 <option value="selecione" selected disabled>Selecione</option>
-                <option value="Equipamento 1">Equipamento 1</option>
-                <option value="Equipamento 2">Equipamento 2</option>
-                <option value="Equipamento 3">Equipamento 3</option>
-                <option value="Equipamento 4">Equipamento 4</option>
-                <option value="Equipamento 5">Equipamento 5</option>
             </select>
         </div>
-        <div id="div-seletor-controle" class="div-seletores-controles">
+        <div id="div-seletor-controle" class="div-seletores">
             <h2>Selecione o lote:</h2>
             <select name="seletor-lotes" id="seletor-lotes" class="seletores-controles">
                 <option value="selecione" selected disabled>Selecione</option>
-                <option value="Lote 1">Lote 1</option>
-                <option value="Lote 2">Lote 2</option>
-                <option value="Lote 3">Lote 3</option>
             </select>
         </div>
-        <div id="div-seletor-analitos" class="div-seletores-controles">
+        <div id="div-seletor-analitos" class="div-seletores">
             <h2>Selecione o analito:</h2>
             <select name="div-seletor-analitos" id="seletor-analitos" class="seletores-controles">
                 <option value="selecione" selected disabled>Selecione</option>
-                <option value="analito1">Analito 1</option>
-                <option value="analito2">Analito 2</option>
-                <option value="analito3">Analito 3</option>
             </select>
         </div>
         <section id="section-controles">
@@ -167,7 +153,8 @@
         </section>
     </main>
     <script src="../js/main.js"></script>
-    <script src="../js/controles.js"></script>
+    <script type="module" src="../js/controles.js"></script>
+    <script type="module" src="../js/supabase.js"></script>
 </body>
 
 </html>

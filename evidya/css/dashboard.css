@@ -16,7 +16,7 @@
     --sombra-hover: rgba(37, 99, 235, 0.08);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -47,7 +47,7 @@
     margin-bottom: 20px;
 }
 
-#avatar-usuario{
+#avatar-usuario {
     width: 45px;
     height: 45px;
     margin: 15px auto;
@@ -66,17 +66,19 @@
     text-transform: capitalize;
     font-size: 1.2rem;
 }
-#nome-usuario{
+
+#nome-usuario {
     color: var(--azul-texto);
 }
-#cargo-usuario{
+
+#cargo-usuario {
     color: var(--texto-secundario);
     font-size: 1.1rem;
 }
 
 .menu-lateral {
     display: flex;
-  flex-direction: column;
+    flex-direction: column;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -92,8 +94,8 @@
     transition: transform 0.5s ease-in-out;
 }
 
-#div-nav{
-  overflow-y: auto;
+#div-nav {
+    overflow-y: auto;
 }
 
 .menu-lateral-ativo {
@@ -114,9 +116,11 @@
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
-#btn-menu:hover{
+
+#btn-menu:hover {
     background-color: var(--azul-padrao);
 }
+
 #btn-fechar-menu:hover {
     background-color: rgb(192, 0, 0);
     transition: 0.3s ease-in-out;
