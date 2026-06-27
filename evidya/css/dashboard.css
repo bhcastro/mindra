@@ -132,7 +132,7 @@ nav {
     margin: 30px 0;
 }
 
-nav a {
+.botoes-menu-lateral {
     text-align: center;
     width: 100%;
     margin: 5px auto;
@@ -141,8 +141,11 @@ nav a {
     color: var(--azul-padrao);
     font-size: 1.2rem;
     font-weight: bold;
+    outline: none;
+    border: none;
+    background-color: transparent;
 }
 
-nav a:hover {
+.botoes-menu-lateral:hover {
     background-color: var(--sombra-hover);
 }

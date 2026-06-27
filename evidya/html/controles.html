@@ -11,26 +11,6 @@
 
 <body>
     <main>
-        <div id="div-background" class="ocultar"></div>
-        <aside class="menu-lateral">
-            <button id="btn-fechar-menu" class="ocultar botoes-menu">✕</button>
-            <button id="btn-menu" class="botoes-menu">>></button>
-            <div class="" id="div-info-usuario">
-                <div class="outputs" id="avatar-usuario">BH</div>
-                <div class="outputs" id="div-nome-usuario"><strong id="nome-usuario">Bruno Castro</strong></div>
-                <div class="outputs" id="cargo-usuario">Dev</div>
-            </div>
-            <div id="div-nav">
-                <nav>
-                    <a href="dashboard.html">Home</a>
-                    <a href="controles.html">Controles</a>
-                    <a href="#">Estatísticas</a>
-                    <a href="#">Interanalista</a>
-                    <a href="#">Configuração</a>
-                    <a href="#">Sair</a>
-                </nav>
-            </div>
-        </aside>
         <header>
             <div id="div-cabecalho">
                 <h1>Gerenciamento de Controles</h1>
@@ -50,7 +30,13 @@
                 <option value="selecione" selected disabled>Selecione</option>
             </select>
         </div>
-        <div id="div-seletor-controle" class="div-seletores">
+        <div id="div-seletor-controles" class="div-seletores">
+            <h2>Selecione o controle:</h2>
+            <select name="seletor-controles" id="seletor-controles" class="seletores-controles">
+                <option value="selecione" selected disabled>Selecione</option>
+            </select>
+        </div>
+        <div id="div-seletor-lotes" class="div-seletores">
             <h2>Selecione o lote:</h2>
             <select name="seletor-lotes" id="seletor-lotes" class="seletores-controles">
                 <option value="selecione" selected disabled>Selecione</option>
@@ -152,9 +138,9 @@
             </div>
         </section>
     </main>
-    <script src="../js/main.js"></script>
+    <!-- <script src="../js/main.js"></script> -->
+    <script type="module" src="../js/menu-lateral.js"></script>
     <script type="module" src="../js/controles.js"></script>
-    <script type="module" src="../js/supabase.js"></script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@ const inputSenha = document.getElementById('senha');
 const botaoLogin = document.getElementById('btn-login');
 const divLogado = document.getElementById('div-logado');
 const formLogin = document.getElementById('form-login');
-const btnSair = document.getElementById('botao-sair');
+// const btnSair = document.getElementById('btn-sair');
 const outputUsuario = document.querySelector('h1');
 const outputMensagem = document.getElementById('output-mensagem');
 
@@ -21,22 +21,19 @@ botaoLogin.addEventListener('click', async (e) => {
 
     const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
     if (error) {
+        inputUsuario.value = "";
+        inputSenha.value = "";
         outputMensagem.textContent = "Falha no login! Verifique suas credenciais.";
-        outputMensagem.textContent = "";
+        setTimeout(() => {
+            outputMensagem.textContent = "";
+        }, 2000);
     } else {
         outputMensagem.textContent = "Entrando...";
-        setTimeout(3000);
-        window.location.href = 'dashboard.html';
-        outputMensagem.textContent = "";
+        setTimeout(() => {
+            window.location.href = 'dashboard.html';
+            outputMensagem.textContent = "";
+        }, 6000);
+        inputUsuario.value = "";
+        inputSenha.value = "";
     }
 });
-
-// btnSair.addEventListener('click', async () => {
-//     const { error } = await supabaseClient.auth.signOut();
-//     if (!error) {
-//         outputMensagem.textContent = "";
-//         window.location.href = 'login.html';
-//     }
-// });
-
-//Final do bloco de código de login
