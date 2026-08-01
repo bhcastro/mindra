@@ -21,7 +21,7 @@ divMenuLateral.innerHTML = `
                     <a href="dashboard.html" class="botoes-menu-lateral">Home</a>
                     <a href="controles.html" class="botoes-menu-lateral">Controles</a>
                     <a href="#" class="botoes-menu-lateral">Estatísticas</a>
-                    <a href="#" class="botoes-menu-lateral">Interanalista</a>
+                    <a href="interanalista.html" class="botoes-menu-lateral">Interanalista</a>
                     <a href="#" class="botoes-menu-lateral">Configuração</a>
                     <button id="btn-sair" class="botoes-menu-lateral">Sair</button>
                 </nav>

@@ -1,0 +1,31 @@
+.celula{
+    margin: 15px;
+    cursor: text;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 200px;
+    padding: 10px 15px;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 1px;
+}
+
+
+.valor-errado{
+    color: red;
+}
+.valor-correto{
+    color: green;
+}
+
+.mostrar-total{
+    display: block;
+}
+
+#output-diferencial{
+    margin: 25px auto;
+    font-weight: 500;
+    font-size: 1.7rem;
+}

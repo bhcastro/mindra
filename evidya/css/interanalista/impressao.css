@@ -1,0 +1,94 @@
+    :root{
+    --fonte-impressao: Helvetica, sans-serif;
+}
+*{
+    padding: 0;
+    font-family: var(--fonte-impressao);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+header{
+    text-align: center;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+h1{
+    font-size: 2.7rem;
+}
+header h2{
+    font-size: 2.2rem;
+}
+h2{
+    font-size: 1.6rem;
+}
+
+button, .botoes, .celula, .paragrafo-observacoes{
+    display: none;
+}
+
+nav input{
+    width: fit-content;
+    font-size: x-large;
+    font-weight: bold;
+}
+input, #output-diferencial{
+    width: fit-content;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+main{
+    margin:20px 0;
+    padding: 10px 40px;
+    text-align: justify;
+}
+
+.lista__celulas{
+    list-style-type: none;
+    list-style-position: inside;
+}
+.lista__celulas li{
+    width: fit-content;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+footer{
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+footer p, a{
+    text-align: center;
+    width: fit-content;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin: 5px 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#paragrafo-github{
+    display: none;
+}
+
+.github{
+    position: relative;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,54 @@
+.botoes{
+    margin: auto 15px;
+    margin-right: -70px;
+    padding: 10px 15px;
+    width: 60px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    outline: none;
+    box-shadow: 0px 0px 3px 1px;
+}
+
+.botoes:hover{
+    box-shadow: 0px 0px 10px 2px;
+    background-color: var(--hover-gray);
+    cursor: pointer;
+}
+.botoes:active{
+    box-shadow: inset 0px 0px 5px 2px;
+    background-color: var(--active-gray);
+}
+
+#botao-imprimir{
+    margin: auto;
+    width: fit-content;
+    font-size: 1.2em;
+}
+
+#botao-remover{
+    width: 40px;
+    padding: 2px 0;
+}
+
+#botao-realizar{
+    width: fit-content;
+    margin: 10px auto;
+}
+
+li .botoes{
+    padding: 4px 8px;
+    width: 120px;
+    margin-right: 0;
+    font-size: 0.7em;
+}
+
+ol .botao-limpar{
+    width: 150px;
+    padding: 10px;
+    font-size: 1em;
+    order: 10;
+    margin: auto;
+}

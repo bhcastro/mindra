@@ -1,0 +1,60 @@
+/* Tablet e notebooks pequenos */
+@media (max-width: 1024px) {
+    body {
+        padding: 10px;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div-calculator,
+    #section-list {
+        width: 90%;
+    }
+
+    input,
+    button,
+    .validation-id {
+        width: 100%;
+        font-size: 1em;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .li-buttons {
+        width: 100%;
+        font-size: 0.9em;
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+
+    h1,
+    h2,
+    h3 {
+        font-size: 1.2em;
+    }
+
+    li,
+    .outputs,
+    .span-validation {
+        font-size: 1.1em;
+    }
+
+    .div-calculator {
+        padding: 10px;
+    }
+
+    #button-add-value,
+    .clear-button,
+    #save-button {
+        width: 100%;
+        font-size: 1em;
+    }
+}
