@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+:root {
+    --azul-padrao: #1a68d1;
+    --azul-fundo: #2c7be5;
+    --branco-padrao: #f5f7fa;
+    --texto: #2c3e50;
+    --bordas: #ccc;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 15px;
+    padding: 10px;
+}
+
+#span-saudacao {
+    color: var(--azul-padrao);
+    font-size: 24px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 10px 10px;
+    border: none;
+    color: var(--azul-padrao);
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    background: var(--branco-padrao);
+    margin: 40px;
+}
+
+form {
+    max-width: 1100px;
+    margin: auto;
+}
+
+fieldset {
+    text-align: left;
+    border: 1px solid var(--bordas);
+    padding: 30px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+#dados-paciente div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5px auto;
+    padding: 0;
+    width: auto;
+}#dados-paciente div label{
+    width: 100px;
+    margin-right: 10px;
+}
+
+input[type="text"], .inputs-dados-paciente {
+    width: 300px;
+    padding: 6px;
+    border: 1px solid var(--bordas);
+    border-radius: 4px;
+}
+
+#nascimento, #idade {
+    width: 113px;
+    padding: 6px;
+    border: 1px solid var(--bordas);
+    border-radius: 4px;
+    text-align: center;
+}
+.card {
+    display: block;
+    background: var(--branco-padrao);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+#diferencial,
+#buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--texto);
+}
+
+legend {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--texto);
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    background: var(--azul-fundo);
+    color: var(--branco-padrao);
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+button, nav a{
+    transition: 0.3s ease-in-out;
+}
+
+button:hover,
+nav a:hover {
+    background: var(--azul-padrao);
+    transition: 0.5s ease-in-out;
+}
+
+nav a:hover {
+    color: var(--branco-padrao);
+}
+
+.ocultar {
+    display: none;
+}
+
+legend:active {
+    display: none;
+}
+
+
+.seletores {
+    display: flex;
+    justify-content: space-between;
+}
+input[type="radio"] {
+    margin: 0px;
+}
+
+fieldset.seletores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+fieldset.seletores div input[type="radio"] {
+    margin: 0 25px;
+}

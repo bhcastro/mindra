@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/laudo-mielo/laudo-mielo.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laudo Mielograma</title>
+</head>
+<header>
+    <span id="span-saudacao" style="cursor: default">Olá Dr. Fulano</span>
+    <nav>
+        <a href="#" target="_blank">Novo Laudo</a>
+        <a href="#" target="_blank">Laudos Digitados</a>
+        <a href="#" target="_blank">Sair</a>
+    </nav>
+</header>
+
+<body>
+    <form id="form-medula">
+        <section class="card">
+            <fieldset id="dados-paciente">
+                <legend>Dados do Paciente</legend>
+                <div>
+                    <label for="sequencia">Sequencia:</label>
+                    <input type="text" id="sequencia" class="inputs-dados-paciente" required>
+                </div>
+                <div>
+                    <label for="id">Amostra:</label>
+                    <input type="text" id="id" class="inputs-dados-paciente" required>
+                </div>
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" class="inputs-dados-paciente" required>
+                </div>
+                <div>
+                    <label for="nascimento">Nascimento:</label>
+                    <input type="date" id="nascimento" class="inputs-dados-paciente" required>
+                </div>
+            </fieldset>
+
+            <fieldset class="fieldset-seletores">
+                <legend>Material</legend>
+                <label for="material" id="material" class="seletores">
+                    <div><input type="radio" name="material" value="Aspirado">Aspirado de medula óssea</div>
+                    <div><input type="radio" name="material" value="Imprint">Imprint de medula óssea</div>
+                    <div><input type="radio" name="material" value="Não mencionado">Não mencionado</div>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Punção</legend>
+
+                <label for="puncao-esternal">
+                    <input type="radio" name="puncao" value="Esternal" />
+                    Esternal
+                </label>
+                <label>
+                    <input type="radio" name="puncao" value="Crista Ilíaca Posterior" />
+                    Crista ilíaca posterior
+                </label>
+                <label>
+                    <input type="radio" name="puncao" value="Crista Ilíaca Anterior" />
+                    Crista ilíaca anterior
+                </label>
+                <label>
+                    <input type="radio" name="puncao" value="Não mencionado" />
+                    Não mencionado
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Celularidade global</legend>
+                <label>
+                    <input type="radio" name="celularidade_global" value="hipocelular" />
+                    Hipocelular
+                </label>
+                <label>
+                    <input type="radio" name="celularidade_global" value="normocelular" />
+                    Normocelular
+                </label>
+                <label>
+                    <input type="radio" name="celularidade_global" value="hipercelular" />
+                    Hipercelular
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Diluição com sangue periférico</legend>
+
+                <label>
+                    <input type="radio" name="diluicao" value="discreta" />
+                    Discreta
+                </label>
+                <label>
+                    <input type="radio" name="diluicao" value="moderada" />
+                    Moderada
+                </label>
+                <label>
+                    <input type="radio" name="diluicao" value="intensa" />
+                    Intensa
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Relação granulócitos/eritroblastos</legend>
+
+                <label for="relacaoGE">Relação G/E</label>
+                <input type="text" id="relacaoGE" name="relacaoGE" placeholder="Ex: 3:1" />
+            </fieldset>
+
+            <fieldset id="diferencial">
+                <legend>Diferencial</legend>
+                <button id="realizarContagem">Realizar contagem</button>
+                <button id="digitarContagem">Digitar contagem</button>
+            </fieldset>
+        </section>
+
+        <section class="card">
+            <h2>Série granulocítica</h2>
+
+            <fieldset>
+                <legend>Celularidade</legend>
+
+                <label>
+                    <input type="radio" name="cel_gran" value="hipocelular" />
+                    Hipocelular
+                </label>
+                <label>
+                    <input type="radio" name="cel_gran" value="normocelular" />
+                    Normocelular
+                </label>
+                <label>
+                    <input type="radio" name="cel_gran" value="hipercelular" />
+                    Hipercelular
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Maturação</legend>
+
+                <input type="text" name="maturacao_gran" placeholder="Descrição da maturação" />
+            </fieldset>
+
+            <section id="diferencial-granulocitos"></section>
+        </section>
+
+        <section class="card">
+            <h2>Série vermelha</h2>
+
+            <fieldset>
+                <legend>Celularidade</legend>
+
+                <label>
+                    <input type="radio" name="cel_vermelha" value="hipocelular" />
+                    Hipocelular
+                </label>
+                <label>
+                    <input type="radio" name="cel_vermelha" value="normocelular" />
+                    Normocelular
+                </label>
+                <label>
+                    <input type="radio" name="cel_vermelha" value="hipercelular" />
+                    Hipercelular
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Maturação</legend>
+
+                <input type="text" name="maturacao_vermelha" placeholder="Descrição da maturação" />
+            </fieldset>
+
+            <section id="diferencial-vermelha"></section>
+        </section>
+
+        <section class="card">
+            <h2>Série linfoplasmocitária</h2>
+
+            <fieldset>
+                <legend>Celularidade</legend>
+
+                <label>
+                    <input type="radio" name="cel_linfo" value="hipocelular" />
+                    Hipocelular
+                </label>
+                <label>
+                    <input type="radio" name="cel_linfo" value="normocelular" />
+                    Normocelular
+                </label>
+                <label>
+                    <input type="radio" name="cel_linfo" value="hipercelular" />
+                    Hipercelular
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Maturação</legend>
+
+                <input type="text" name="maturacao_linfo" placeholder="Descrição da maturação" />
+            </fieldset>
+
+            <fieldset>
+                <legend>Alterações displásicas</legend>
+
+                <label>
+                    <input type="checkbox" name="cariolise" />
+                    Cariólise
+                </label>
+            </fieldset>
+
+            <section id="diferencial-linfo"></section>
+        </section>
+        <section id="buttons">
+            <button type="submit">Assinar</button>
+            <button class="ocultar">Retificar</button>
+            <button>Gerar PDF</button>
+        </section>
+    </form>
+    <script src="../js/laudo-mielo/laudo-mielo.js"></script>
+</body>
+
+</html>
