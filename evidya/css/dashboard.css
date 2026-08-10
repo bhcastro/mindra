@@ -113,7 +113,6 @@
     border: 1px solid black;
     border-radius: 8px;
     background-color: var(--branco-hover);
-    cursor: pointer;
     transition: 0.3s ease-in-out;
 }
 
@@ -148,4 +147,5 @@ nav {
 
 .botoes-menu-lateral:hover {
     background-color: var(--sombra-hover);
+    cursor: pointer;
 }

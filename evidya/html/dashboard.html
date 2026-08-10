@@ -4,15 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/tarefas.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 </head>
 
 <body>
     <main>
+        <div>
+                <label for="input-nova-tarefa">Nova tarefa:</label>
+                <input type="text" id="input-nova-tarefa">
+                <button type="button" id="btn-adicionar-tarefa">Adicionar</button>
+                <span id="span-mensagens-tarefas"></span>
+            </div>
+        <section id="tarefas-diarias">
+            <div id="div-tarefas-fixas" class="div-tarefas">
+                <h3>Tarefas diárias</h3>
+                <div id="tarefas-fixas">
+                    <ul id="lista-tarefas-fixas"></ul>
+                </div>
+            </div>
+            <div id="div-tarefas-pontuais" class="div-tarefas ocultar">
+                <h3>Tarefas pontuais</h3>
+                <div id="tarefas-pontuais">
+                    <ul id="lista-tarefas-pontuais"></ul>
+                    <button type="button" id="btn-limpar-lista" class="ocultar">Limpar Lista</button>
+                </div>
+
+            </div>
+        </section>
+        <section></section>
     </main>
     <script type="module" src="../js/main.js"></script>
     <script type="module" src="../js/menu-lateral.js"></script>
+    <script type="module" src="../js/dashboard/tarefas-dashboard.js"></script>
 </body>
 
 </html>
