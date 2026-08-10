@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/laudo-mielo/mielo-gpt.css"/>
+
+    <title>Mielograma</title>
+</head>
+
+<body>
+
+    <header>
+        <span id="span-saudacao">Olá Dr. Fulano</span>
+
+        <nav>
+            <a href="#" id="novoLaudo">Novo Laudo</a>
+            <a href="#" id="laudosDigitados">Laudos Digitados</a>
+            <a href="#" id="sair">Sair</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- STATUS DO LAUDO -->
+        <div class="status-laudo">
+            <span>
+                Status:
+                <strong id="statusLaudo">Rascunho</strong>
+            </span>
+
+            <span id="dataAssinaturaContainer" class="ocultar">
+                Assinado em:
+                <strong id="dataAssinatura"></strong>
+            </span>
+        </div>
+
+
+        <form id="form-medula">
+
+            <!-- =====================================================
+                 DADOS DO PACIENTE
+            ====================================================== -->
+
+            <section class="card">
+
+                <h2>Identificação</h2>
+
+                <fieldset id="dados-paciente">
+
+                    <legend>Dados do Paciente</legend>
+
+                    <div class="grid-paciente">
+
+                        <div>
+                            <label for="sequencia">Sequência</label>
+                            <input
+                                type="text"
+                                id="sequencia"
+                                name="sequencia"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label for="amostra">Amostra</label>
+                            <input
+                                type="text"
+                                id="amostra"
+                                name="amostra"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label for="nome">Nome</label>
+                            <input
+                                type="text"
+                                id="nome"
+                                name="nome"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label for="nascimento">Data de nascimento</label>
+                            <input
+                                type="date"
+                                id="nascimento"
+                                name="nascimento"
+                                required
+                            />
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- MATERIAL -->
+
+                <fieldset>
+
+                    <legend>Material</legend>
+
+                    <div class="opcoes">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="material"
+                                value="Aspirado de medula óssea"
+                            />
+                            Aspirado de medula óssea
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="material"
+                                value="Imprint de medula óssea"
+                            />
+                            Imprint de medula óssea
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- PUNÇÃO -->
+
+                <fieldset>
+
+                    <legend>Punção</legend>
+
+                    <div class="opcoes">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="puncao"
+                                value="Esternal"
+                            />
+                            Esternal
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="puncao"
+                                value="Crista ilíaca posterior"
+                            />
+                            Crista ilíaca posterior
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="puncao"
+                                value="Crista ilíaca anterior"
+                            />
+                            Crista ilíaca anterior
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="puncao"
+                                value="Não mencionado"
+                            />
+                            Não mencionado
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- DIFERENCIAL -->
+
+                <fieldset>
+
+                    <legend>Diferencial</legend>
+
+                    <div id="diferencial">
+
+                        <button
+                            type="button"
+                            id="realizarContagem"
+                        >
+                            Realizar contagem
+                        </button>
+
+                        <button
+                            type="button"
+                            id="digitarContagem"
+                        >
+                            Digitar contagem
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="areaDiferencial"
+                        class="area-diferencial ocultar"
+                    >
+
+                        <p>
+                            Área reservada para o diferencial celular.
+                        </p>
+
+                        <textarea
+                            id="diferencialTexto"
+                            name="diferencial"
+                            rows="5"
+                            placeholder="Digite o diferencial..."
+                        ></textarea>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- CELULARIDADE GLOBAL -->
+
+                <fieldset>
+
+                    <legend>Celularidade global</legend>
+
+                    <div class="opcoes">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="celularidade_global"
+                                value="Hipocelular"
+                            />
+                            Hipocelular
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="celularidade_global"
+                                value="Normocelular"
+                            />
+                            Normocelular
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="celularidade_global"
+                                value="Hipercelular"
+                            />
+                            Hipercelular
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- DILUIÇÃO -->
+
+                <fieldset>
+
+                    <legend>Diluição com sangue periférico</legend>
+
+                    <div class="opcoes">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="diluicao"
+                                value="Discreta"
+                            />
+                            Discreta
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="diluicao"
+                                value="Moderada"
+                            />
+                            Moderada
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="diluicao"
+                                value="Intensa"
+                            />
+                            Intensa
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- RELAÇÃO G/E -->
+
+                <fieldset>
+
+                    <legend>Relação granulócitos/eritroblastos</legend>
+
+                    <label for="relacaoGE">
+                        Relação G/E
+                    </label>
+
+                    <input
+                        type="text"
+                        id="relacaoGE"
+                        name="relacaoGE"
+                        placeholder="Ex.: 3:1"
+                    />
+
+                </fieldset>
+
+            </section>
+
+
+            <!-- =====================================================
+                 SÉRIE GRANULOCÍTICA
+            ====================================================== -->
+
+            <section class="card">
+
+                <h2>Série granulocítica</h2>
+
+                <fieldset>
+
+                    <legend>Celularidade</legend>
+
+                    <div class="opcoes">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="cel_gran"
+                                value="Hipocelular"
+                            />
+                            Hipocelular
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="cel_gran"
+                                value="Normocelular"
+                            />
+                            Normocelular
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="cel_gran"
+                                value="Hipercelular"
+                            />
+                            Hipercelular
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <fieldset>
+
+                    <legend>Maturação</legend>
+
+                    <textarea
+                        name="maturacao_gran"
+                        rows="4"
+                        placeholder="Descrição da maturação..."
+                    ></textarea>
+
+                </fieldset>
+
+
+                <fieldset>
+
+                    <legend>Alterações</legend>
+
+                    <div class="checkbox-grid">
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_gran" value="Hipogranulação">
+                            Hipogranulação
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_gran" value="Hipergranulação">
+                            Hipergranulação
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_gran" value="Hipolobulação">
+                            Hipolobulação
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_gran" value="Hipersegmentação">
+                            Hipersegmentação
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_gran" value="Assincronia">
+                            Assincronia maturativa
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_gran" value="Outros">
+                            Outros
+                        </label>
+
+                    </div>
+
+                    <input
+                        type="text"
+                        name="outros_gran"
+                        placeholder="Outras alterações..."
+                    />
+
+                </fieldset>
+
+            </section>
+
+
+            <!-- =====================================================
+                 SÉRIE VERMELHA
+            ====================================================== -->
+
+            <section class="card">
+
+                <h2>Série vermelha</h2>
+
+                <fieldset>
+
+                    <legend>Celularidade</legend>
+
+                    <div class="opcoes">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="cel_vermelha"
+                                value="Hipocelular"
+                            />
+                            Hipocelular
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="cel_vermelha"
+                                value="Normocelular"
+                            />
+                            Normocelular
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="cel_vermelha"
+                                value="Hipercelular"
+                            />
+                            Hipercelular
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <fieldset>
+
+                    <legend>Maturação</legend>
+
+                    <textarea
+                        name="maturacao_vermelha"
+                        rows="4"
+                        placeholder="Descrição da maturação..."
+                    ></textarea>
+
+                </fieldset>
+
+
+                <fieldset>
+
+                    <legend>Alterações</legend>
+
+                    <div class="checkbox-grid">
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Cariólise">
+                            Cariólise
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Pontilhado basofílico">
+                            Pontilhado basofílico
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Núcleos picnóticos">
+                            Núcleos picnóticos
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Pontes intercitoplasmáticas">
+                            Pontes intercitoplasmáticas
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Figuras de mitose">
+                            Figuras de mitose
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Cariorrexis">
+                            Cariorrexis
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Extrusão nuclear">
+                            Extrusão nuclear
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Vacuolização nuclear">
+                            Vacuolização nuclear
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Pontes internucleares">
+                            Pontes internucleares
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Assincronia nucleocitoplasmática">
+                            Assincronia nucleocitoplasmática
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Multinucleação">
+                            Multinucleação
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Corpúsculo de Howell-Jolly">
+                            Corpúsculo de Howell-Jolly
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Vacuolização citoplasmática">
+                            Vacuolização citoplasmática
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="alteracoes_vermelha" value="Células megaloblásticas">
+                            Células megaloblásticas
+                        </label>
+
+                    </div>
+
+                    <label for="outros_vermelha">
+                        Outros
+                    </label>
+
+                    <input
+                        type="text"
+                        id="outros_vermelha"
+                        name="outros_vermelha"
+                    />
+
+                </fieldset>
+
+            </section>
+
+
+            <!-- =====================================================
+                 SÉRIE LINFO-PLASMOCITÁRIA
+            ====================================================== -->
+
+            <section class="card">
+
+                <h2>Série linfoplasmocitária</h2>
+
+                <fieldset>
+
+                    <legend>Celularidade</legend>
+
+                    <div class="opcoes">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="cel_linfo"
+                                value="Hipocelular"
+                            />
+                            Hipocelular
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="cel_linfo"
+                                value="Normocelular"
+                            />
+                            Normocelular
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="cel_linfo"
+                                value="Hipercelular"
+                            />
+                            Hipercelular
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <fieldset>
+
+                    <legend>Maturação</legend>
+
+                    <textarea
+                        name="maturacao_linfo"
+                        rows="4"
+                        placeholder="Descrição da maturação..."
+                    ></textarea>
+
+                </fieldset>
+
+
+                <fieldset>
+
+                    <legend>Alterações displásicas</legend>
+
+                    <div class="checkbox-grid">
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="alteracoes_linfo"
+                                value="Cariólise"
+                            />
+                            Cariólise
+                        </label>
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="alteracoes_linfo"
+                                value="Cariorrexis"
+                            />
+                            Cariorrexis
+                        </label>
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="alteracoes_linfo"
+                                value="Assincronia maturativa"
+                            />
+                            Assincronia maturativa
+                        </label>
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="alteracoes_linfo"
+                                value="Vacuolização"
+                            />
+                            Vacuolização
+                        </label>
+
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="alteracoes_linfo"
+                                value="Multinucleação"
+                            />
+                            Multinucleação
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+            </section>
+
+
+            <!-- =====================================================
+                 MEGACARIOCÍTICA
+            ====================================================== -->
+
+            <section class="card">
+
+                <h2>Série megacariocítica</h2>
+
+                <fieldset>
+
+                    <legend>Presença</legend>
+
+                    <div class="opcoes">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="megacariocitos"
+                                value="Presente"
+                            />
+                            Presente
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="megacariocitos"
+                                value="Reduzida"
+                            />
+                            Reduzida
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="megacariocitos"
+                                value="Aumentada"
+                            />
+                            Aumentada
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="megacariocitos"
+                                value="Ausente"
+                            />
+                            Ausente
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <fieldset>
+
+                    <legend>Características</legend>
+
+                    <textarea
+                        name="caracteristicas_mega"
+                        rows="5"
+                        placeholder="Descreva as características dos megacariócitos..."
+                    ></textarea>
+
+                </fieldset>
+
+            </section>
+
+
+            <!-- =====================================================
+                 BLASTOS
+            ====================================================== -->
+
+            <section class="card">
+
+                <h2>Blastos</h2>
+
+                <fieldset>
+
+                    <legend>Avaliação</legend>
+
+                    <div class="campo-linha">
+
+                        <label for="percentual_blastos">
+                            Percentual de blastos
+                        </label>
+
+                        <input
+                            type="number"
+                            id="percentual_blastos"
+                            name="percentual_blastos"
+                            min="0"
+                            max="100"
+                            step="0.1"
+                            placeholder="%"
+                        />
+
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <legend>Descrição</legend>
+
+                    <textarea
+                        name="descricao_blastos"
+                        rows="5"
+                        placeholder="Descrição morfológica..."
+                    ></textarea>
+
+                </fieldset>
+
+            </section>
+
+
+            <!-- =====================================================
+                 CONCLUSÃO
+            ====================================================== -->
+
+            <section class="card">
+
+                <h2>Conclusão</h2>
+
+                <fieldset>
+
+                    <legend>Laudo</legend>
+
+                    <textarea
+                        id="conclusao"
+                        name="conclusao"
+                        rows="10"
+                        placeholder="Digite a conclusão do mielograma..."
+                    ></textarea>
+
+                </fieldset>
+
+
+                <fieldset>
+
+                    <legend>Observações</legend>
+
+                    <textarea
+                        id="observacoes"
+                        name="observacoes"
+                        rows="6"
+                        placeholder="Observações adicionais..."
+                    ></textarea>
+
+                </fieldset>
+
+            </section>
+
+
+            <!-- =====================================================
+                 ASSINATURA
+            ====================================================== -->
+
+            <section class="card assinatura">
+
+                <h2>Responsável pelo Laudo</h2>
+
+                <div class="dados-assinatura">
+
+                    <div>
+                        <strong>Médico:</strong>
+                        <span id="medicoResponsavel">
+                            Dr. Fulano
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>CRM:</strong>
+                        <span id="crmResponsavel">
+                            CRM 000000
+                        </span>
+                    </div>
+
+                    <div id="assinaturaDigitalContainer" class="ocultar">
+
+                        <strong>Assinatura eletrônica:</strong>
+
+                        <span id="assinaturaDigital">
+                            -
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 BOTÕES
+            ====================================================== -->
+
+            <section id="buttons">
+
+                <button
+                    type="button"
+                    id="salvarRascunho"
+                    class="btn-secundario"
+                >
+                    Salvar rascunho
+                </button>
+
+                <button
+                    type="button"
+                    id="assinarLaudo"
+                >
+                    Assinar
+                </button>
+
+                <button
+                    type="button"
+                    id="imprimirLaudo"
+                >
+                    Imprimir / Gerar PDF
+                </button>
+
+            </section>
+
+        </form>
+
+    </main>
+
+
+    <!-- MODAL DE CONFIRMAÇÃO -->
+
+    <div
+        id="modalAssinatura"
+        class="modal-overlay ocultar"
+    >
+
+        <div class="modal">
+
+            <h2>Confirmar assinatura</h2>
+
+            <p>
+                Ao assinar este laudo, ele será considerado finalizado
+                e <strong>não poderá mais ser editado</strong>.
+            </p>
+
+            <p>
+                Após a assinatura, alterações deverão ser realizadas
+                através de um procedimento de retificação.
+            </p>
+
+            <div class="modal-botoes">
+
+                <button
+                    type="button"
+                    id="cancelarAssinatura"
+                    class="btn-secundario"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    id="confirmarAssinatura"
+                >
+                    Confirmar assinatura
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/laudo-mielo/laudo-mielo.js"></script>
+
+</body>
+
+</html>

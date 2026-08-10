@@ -1,12 +1,32 @@
-@charset "UTF-8";
-
 :root {
-    --azul-padrao: #1a68d1;
-    --azul-fundo: #2c7be5;
-    --branco-padrao: #f5f7fa;
-    --texto: #2c3e50;
-    --bordas: #ccc;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    /* Cores principais */
+    --cor-primaria: #1a68d1;
+    --cor-primaria-hover: #1a68d1;
+    --cor-botao: #2c7be5;
+
+    /* Cores de texto */
+    --cor-texto-principal: #2c3e50;
+    --cor-texto-secundario: #34495e;
+    --cor-texto-branco: #ffffff;
+
+    /* Cores de fundo */
+    --cor-fundo-body: #f5f7fa;
+    --cor-fundo-card: #ffffff;
+    /* Bordas */
+
+    --cor-borda-input: #ccc;
+    --cor-borda-fieldset: #ddd;
+    /* Sombra */
+
+    --cor-sombra-card: rgba(0, 0, 0, 0.05);
+}
+
+ul{
+    list-style-type: none;
+    column-count: 3;
+    column-gap: 20px;
+    line-height: 1.6;
+    cursor: pointer;
 }
 
 header {
@@ -17,78 +37,77 @@ header {
     padding: 10px;
 }
 
+
 #span-saudacao {
-    color: var(--azul-padrao);
+    color: var(--cor-primaria);
     font-size: 24px;
 }
+
 
 nav {
     display: flex;
     gap: 20px;
 }
 
+
 nav a {
     text-decoration: none;
     padding: 10px 10px;
     border: none;
-    color: var(--azul-padrao);
+    color: var(--cor-primaria);
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
+
 body {
     font-family: Roboto, sans-serif;
-    background: var(--branco-padrao);
+    background: var(--cor-fundo-body);
     margin: 40px;
 }
+
 
 form {
     max-width: 1100px;
     margin: auto;
 }
 
-fieldset {
-    text-align: left;
-    border: 1px solid var(--bordas);
-    padding: 30px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-}
+
 #dados-paciente div {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    margin: 5px auto;
+    margin: 5px 0;
     padding: 0;
     width: auto;
-}#dados-paciente div label{
-    width: 100px;
-    margin-right: 10px;
 }
 
-input[type="text"], .inputs-dados-paciente {
-    width: 300px;
+
+input[type="text"] {
+    width: 250px;
     padding: 6px;
-    border: 1px solid var(--bordas);
+    border: 1px solid var(--cor-borda-input);
     border-radius: 4px;
 }
 
-#nascimento, #idade {
-    width: 113px;
-    padding: 6px;
-    border: 1px solid var(--bordas);
-    border-radius: 4px;
-    text-align: center;
+
+#dados-paciente div label {
+    margin: 10px 20px;
+    width: 200px;
+    font-weight: bold;
+    color: var(--cor-texto-secundario);
 }
+
+
 .card {
     display: block;
-    background: var(--branco-padrao);
+    background: var(--cor-fundo-card);
     padding: 25px;
     margin-bottom: 25px;
     border-radius: 8px;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 2px 8px var(--cor-sombra-card);
 }
+
 
 #diferencial,
 #buttons {
@@ -96,70 +115,62 @@ input[type="text"], .inputs-dados-paciente {
     justify-content: space-around;
 }
 
+
 h2 {
     margin-top: 0;
-    color: var(--texto);
+    color: var(--cor-texto-principal);
 }
+
+
+fieldset {
+    border: 1px solid var(--cor-borda-fieldset);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+}
+
 
 legend {
     cursor: pointer;
     font-weight: bold;
-    color: var(--texto);
+    color: var(--cor-texto-secundario);
 }
+
 
 label {
     display: block;
-    margin: 5px 0;
+    margin: 10px 0;
     cursor: pointer;
 }
+
 
 button {
     padding: 12px 20px;
     border: none;
-    background: var(--azul-fundo);
-    color: var(--branco-padrao);
+    background: var(--cor-botao);
+    color: var(--cor-texto-branco);
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    
 }
-button, nav a{
-    transition: 0.3s ease-in-out;
-}
+
 
 button:hover,
 nav a:hover {
-    background: var(--azul-padrao);
-    transition: 0.5s ease-in-out;
+    background: var(--cor-primaria-hover);
 }
 
+
 nav a:hover {
-    color: var(--branco-padrao);
+    color: var(--cor-texto-branco);
 }
+
 
 .ocultar {
     display: none;
 }
 
+
 legend:active {
     display: none;
-}
-
-
-.seletores {
-    display: flex;
-    justify-content: space-between;
-}
-input[type="radio"] {
-    margin: 0px;
-}
-
-fieldset.seletores {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-fieldset.seletores div input[type="radio"] {
-    margin: 0 25px;
 }
