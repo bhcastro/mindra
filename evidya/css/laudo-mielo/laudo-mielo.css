@@ -83,7 +83,7 @@ form {
 }
 
 
-input[type="text"] {
+input[type="text"], input[type="date"] {
     width: 250px;
     padding: 6px;
     border: 1px solid var(--cor-borda-input);
@@ -108,6 +108,10 @@ input[type="text"] {
     box-shadow: 0 2px 8px var(--cor-sombra-card);
 }
 
+#lista-alteracoes-serie-vermelha{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 
 #diferencial,
 #buttons {
@@ -173,4 +177,15 @@ nav a:hover {
 
 legend:active {
     display: none;
+}
+
+textarea {
+    padding: 10px;
+    border: 1px solid var(--cor-borda-input);
+    border-radius: 4px;
+    resize: none;
+}
+
+#btn-assinar{
+    width: 90%;
 }

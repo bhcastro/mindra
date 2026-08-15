@@ -23,19 +23,19 @@
                 <legend>Dados do Paciente</legend>
                 <div>
                     <label>Sequencia:</label>
-                    <input type="text" name="nome" class="inputs-dados-paciente" required>
+                    <input type="text" id="sequencia" class="inputs-dados-paciente" required>
                 </div>
                 <div>
                     <label>Amostra:</label>
-                    <input type="text" name="id" class="inputs-dados-paciente" required>
+                    <input type="text" id="amostra" class="inputs-dados-paciente" required>
                 </div>
                 <div>
                     <label>Nome:</label>
-                    <input type="text" name="nome" class="inputs-dados-paciente" required>
+                    <input type="text" id="nome" class="inputs-dados-paciente" required>
                 </div>
                 <div>
                     <label>Data de nascimento:</label>
-                    <input type="text" class="inputs-dados-paciente" name="nascimento" required>
+                    <input type="date" id="dataNascimento" class="inputs-dados-paciente" name="nascimento" required>
                 </div>
             </fieldset>
 
@@ -182,21 +182,17 @@
                             <li><input type="checkbox" value="Cariólise">Cariólise</li>
                             <li><input type="checkbox" value="Pontilhado basofílico">Pontilhado basofílico</li>
                             <li><input type="checkbox" value="Núcleos picnóticos">Núcleos picnóticos</li>
-                            <li><input type="checkbox" value="Pontes intercitoplasmáticas">Pontes intercitoplasmáticas
-                            </li>
+                            <li><input type="checkbox" value="Pontes intercitoplasmáticas">Pontes intercitoplasmáticas</li>
                             <li><input type="checkbox" value="Figuras de mitose">Figuras de mitose</li>
                             <li><input type="checkbox" value="Cariorrexis">Cariorrexis</li>
                             <li><input type="checkbox" value="Extrusão nuclear">Extrusão nuclear</li>
                             <li><input type="checkbox" value="Vacuolização nuclear">Vacuolização nuclear</li>
                             <li><input type="checkbox" value="Pontes internucleares">Pontes internucleares</li>
-                            <li><input type="checkbox" value="Assincronia nucleocitoplasmática">Assincronia
-                                nucleocitoplasmática</li>
+                            <li><input type="checkbox" value="Assincronia nucleocitoplasmática">Assincronia nucleocitoplasmática</li>
                             <li><input type="checkbox" value="Multinucleação">Multinucleação</li>
                             <li><input type="checkbox" value="Corpúsculo de Howel-Jolly">Corpúsculo de Howel-Jolly</li>
-                            <li><input type="checkbox" value="Vacuolização citoplasmática">Vacuolização citoplasmática
-                            </li>
+                            <li><input type="checkbox" value="Vacuolização citoplasmática">Vacuolização citoplasmática</li>
                             <li><input type="checkbox" value="Células megaloblásticas">Células megaloblásticas</li>
-                            <li><input type="checkbox" value="Outros">Outros: <input type="text" id="outros"></li>
                         </ul>
 
                     </fieldset>
@@ -225,28 +221,90 @@
 
                 <fieldset>
                     <legend>Maturação</legend>
-
                     <input type="text" name="maturacao_linfo" placeholder="Descrição da maturação" />
                 </fieldset>
 
                 <fieldset>
-                    <legend>Alterações displásicas</legend>
+                        <legend>Alterações</legend>
+                        <ul id="lista-alteracoes-serie-vermelha">
+                            <li><input type="checkbox" value="Células linfoplasmocitóides">Células linfoplasmocitóides</li>
+                            <li><input type="checkbox" value="Inclusões citoplasmáticas azurófilas">Inclusões citoplasmáticas azurófilas</li>
+                            <li><input type="checkbox" value="Células de Mott">Células de Mott</li>
+                            <li><input type="checkbox" value="Flower Cells">Flower Cells</li>
+                            <li><input type="checkbox" value="Linfócitos clivados">Linfócitos clivados</li>
+                            <li><input type="checkbox" value="Plasmócitos flamejantes">Plasmócitos flamejantes</li>
+                            <li><input type="checkbox" value="Hairy cells">Hairy cells</li>
+                            <li><input type="checkbox" value="Plasmócitos multinucleados">Plasmócitos multinucleados</li>
+                            <li><input type="checkbox" value="Corpúsculos de Russell">Corpúsculos de Russell</li>
+                            <li><input type="checkbox" value="Ninhos plasmocitários">Ninhos plasmocitários</li>
+                            <li><input type="checkbox" value="Cristais de imunoglobulinas">Cristais de imunoglobulinas</li>
+                        </ul>
+            </section>
+
+            <section class="card">
+                <h2>Série monocitária</h2>                <fieldset>
+                    <legend>Celularidade</legend>
 
                     <label>
-                        <input type="checkbox" name="cariolise" />
-                        Cariólise
+                        <input type="radio" name="cel_mono" value="hipocelular" />
+                        Hipocelular
+                    </label>
+                    <label>
+                        <input type="radio" name="cel_mono" value="normocelular" />
+                        Normocelular
+                    </label>
+                    <label>
+                        <input type="radio" name="cel_mono" value="hipercelular" />
+                        Hipercelular
                     </label>
                 </fieldset>
 
-                <section id="diferencial-linfo"></section>
-            </section>
+                <fieldset>
+                    <legend>Maturação</legend>
+                    <input type="text" name="maturacao_mono" placeholder="Descrição da maturação" />
+                </fieldset>
+
+                <section class="card">
+                    <h2>Série megacariocítica</h2>
+
+                                    <fieldset>
+                    <legend>Celularidade</legend>
+
+                    <label>
+                        <input type="radio" name="cel_megac" value="hipocelular" />
+                        Hipocelular
+                    </label>
+                    <label>
+                        <input type="radio" name="cel_megac" value="normocelular" />
+                        Normocelular
+                    </label>
+                    <label>
+                        <input type="radio" name="cel_megac" value="hipercelular" />
+                        Hipercelular
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Maturação</legend>
+                    <input type="text" name="maturacao_megac" placeholder="Descrição da maturação" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Outras alterações</legend>
+                    <textarea name="outras_alteracoes" placeholder="Descreva outras alterações observadas" cols="120" rows="5"></textarea>
+                </fieldset>
+                </section>
+
+
+
+
+
+
             <section id="buttons">
-                <button type="submit">Assinar</button>
-                <button class="ocultar">Retificar</button>
-                <button>Gerar PDF</button>
+                <button id="btn-assinar" type="submit">Assinar</button>
             </section>
     </form>
-    <script src="./script.js"></script>
+    <script src="../js/laudo-mielo/laudo-mielo.js"></script>
 </body>
 
 </html>
