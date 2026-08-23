@@ -1,0 +1,213 @@
+/* ======================================================
+   PREVIEW
+====================================================== */
+
+#preview-laudo {
+    background: #e5e5e5;
+    padding: 30px;
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+
+/* ======================================================
+   LAUDO
+====================================================== */
+
+#laudo-pdf {
+    width: 794px;
+    min-height: 1123px;
+
+    box-sizing: border-box;
+
+    padding: 50px 60px;
+
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+/* ======================================================
+   CABEÇALHO DO LAUDO
+====================================================== */
+
+#laudo-pdf .laudo-cabecalho {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 25px 0;
+    padding: 0 0 12px 0;
+
+    border-bottom: 2px solid #000;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+#laudo-pdf .laudo-cabecalho h1 {
+    margin: 0;
+    padding: 0;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    color: #000;
+
+    text-transform: uppercase;
+}
+
+
+/* ======================================================
+   SEÇÕES
+====================================================== */
+
+#laudo-pdf .laudo-secao {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 18px 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+
+#laudo-pdf .laudo-secao h2 {
+    display: block;
+
+    margin: 0 0 8px 0;
+    padding: 0 0 4px 0;
+
+    border-bottom: 1px solid #999;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: #000;
+
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+
+#laudo-pdf .laudo-secao p {
+    display: block;
+
+    margin: 4px 0;
+    padding: 0;
+
+    color: #000;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+/* ======================================================
+   DADOS EM DUAS COLUNAS
+====================================================== */
+
+#laudo-pdf .laudo-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4px 30px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+#laudo-pdf .campo-largo {
+    grid-column: 1 / -1;
+}
+
+
+/* ======================================================
+   CONCLUSÃO
+====================================================== */
+
+#laudo-pdf .laudo-conclusao {
+    margin-top: 25px;
+}
+
+
+#laudo-pdf .laudo-conclusao p {
+    min-height: 60px;
+
+    white-space: pre-wrap;
+}
+
+
+/* ======================================================
+   ASSINATURA
+====================================================== */
+
+#laudo-pdf .laudo-assinatura {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 50px;
+
+    text-align: center;
+
+    color: #000;
+
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+
+#laudo-pdf .laudo-assinatura p {
+    margin: 3px 0;
+    padding: 0;
+
+    font-size: 14px;
+
+    color: #000;
+}
+
+
+/* ======================================================
+   CONTAINER USADO SOMENTE PARA GERAR PDF
+====================================================== */
+
+#container-pdf-temporario {
+    background: #ffffff !important;
+}
+
+
+#container-pdf-temporario #laudo-pdf {
+    margin: 0 !important;
+
+    width: 794px !important;
+
+    min-height: 1123px !important;
+
+    background: #ffffff !important;
+
+    box-shadow: none !important;
+
+    border-radius: 0 !important;
+
+    transform: none !important;
+}

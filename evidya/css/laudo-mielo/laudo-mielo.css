@@ -21,7 +21,7 @@
     --cor-sombra-card: rgba(0, 0, 0, 0.05);
 }
 
-ul{
+ul {
     list-style-type: none;
     column-count: 3;
     column-gap: 20px;
@@ -77,13 +77,15 @@ form {
 #dados-paciente div {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     margin: 5px 0;
     padding: 0;
     width: auto;
 }
 
 
-input[type="text"], input[type="date"] {
+input[type="text"],
+input[type="date"] {
     width: 250px;
     padding: 6px;
     border: 1px solid var(--cor-borda-input);
@@ -108,7 +110,7 @@ input[type="text"], input[type="date"] {
     box-shadow: 0 2px 8px var(--cor-sombra-card);
 }
 
-#lista-alteracoes-serie-vermelha{
+#lista-alteracoes-serie-vermelha {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -186,6 +188,181 @@ textarea {
     resize: none;
 }
 
-#btn-assinar{
+#btn-assinar {
     width: 90%;
+    font-size: 20px;
+}
+
+#section-assinatura {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 2;
+}
+
+
+/* ======================================================
+    PRÉ-VISUALIZAÇÃO DO LAUDO
+====================================================== */
+
+#preview-laudo {
+    background-color: #e5e5e5;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+
+/* ======================================================
+    DOCUMENTO A4
+====================================================== */
+
+#laudo-pdf {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 15mm 18mm;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 1.4;
+}
+
+
+/* ======================================================
+    CABEÇALHO
+====================================================== */
+
+.laudo-cabecalho {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+
+.laudo-cabecalho h1 {
+    margin: 0;
+    font-size: 20pt;
+    text-transform: uppercase;
+}
+
+
+/* ======================================================
+    SEÇÕES
+====================================================== */
+
+.laudo-secao {
+    margin-bottom: 15px;
+}
+
+
+.laudo-secao h2 {
+    font-size: 12pt;
+    margin: 0 0 8px 0;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #777;
+}
+
+.laudo-secao p {
+    margin: 4px 0;
+}
+
+
+/* ======================================================
+    GRID DE DADOS
+====================================================== */
+
+.laudo-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    column-gap: 20px;
+}
+
+.campo-largo {
+    grid-column: 1 / -1;
+}
+
+
+/* ======================================================
+    CONCLUSÃO
+====================================================== */
+
+.laudo-conclusao {
+    margin-top: 20px;
+}
+
+
+.laudo-conclusao p {
+    min-height: 50px;
+    white-space: pre-wrap;
+}
+
+
+/* ======================================================
+    ASSINATURA
+====================================================== */
+
+.laudo-assinatura {
+    margin-top: 40px;
+
+    text-align: center;
+}
+
+.laudo-assinatura p {
+    margin: 2px 0;
+}
+
+
+/* ======================================================
+    IMPRESSÃO
+====================================================== */
+
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    #preview-laudo,
+    #preview-laudo * {
+        visibility: visible;
+    }
+
+
+    #preview-laudo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+
+
+    #laudo-pdf {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 10mm 15mm;
+    }
+
+    .laudo-secao {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.laudo-secao h2 {
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+.laudo-assinatura {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
 }
