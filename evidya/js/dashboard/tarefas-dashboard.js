@@ -1,111 +1,189 @@
 //DECLARAÇÕES
+//===========
 
-const arrayTarefasFixas = ['Temperaturas', 'Controles', 'Manutenções', 'Reprodutibilidade'];
-const arrayTarefasPontuais = [];
+const listaTarefasDiarias = [
+  "Temperaturas",
+  "Manutenções",
+  "Controles",
+  "Separar Repro",
+  "Limpar bancada",
+  "Desprezar Soroteca"
+];
+const listaTarefasCriadas = [];
+const arrayRecoletas = [];
 
-const listaTarefasFixas = document.getElementById('lista-tarefas-fixas');
-const listaTarefasPontuais = document.getElementById('lista-tarefas-pontuais');
+const divNovaColeta = document.getElementById("div-recoletas");
+const inputNovaColeta = document.getElementById("input-nova-coleta");
+const btnAdicionarNovaColeta = document.getElementById("btn-adicionar-nova-coleta");
 
-const inputNovaTarefa = document.getElementById('input-nova-tarefa');
+const inputNovaTarefa = document.getElementById("input-nova-tarefa");
+const divNovaTarefa = document.getElementById("div-nova-tarefa");
+const btnAdicionarNovaTarefa = document.getElementById("btn-adicionar-nova-tarefa");
 
-const btnAdicionarTarefa = document.getElementById('btn-adicionar-tarefa');
-const btnLimparLista = document.getElementById('btn-limpar-lista');
+const btnLimparListaTarefas = document.getElementById("btn-limpar-lista");
+const btnLimparListaRecoletas = document.getElementById('btn-limpar-lista-recoletas')
 
-const divTarefasPontuais = document.getElementById('div-tarefas-pontuais');
-const spanMensagensTarefas = document.getElementById('span-mensagens-tarefas');
+const divTarefasPontuais = document.getElementById("div-tarefas-pontuais");
+
+const listaTarefasPendentes = document.getElementById("lista-tarefas-pendentes");
+const listaTarefasPontuais = document.getElementById("lista-tarefas-pontuais");
+const listaRecoletas = document.getElementById('lista-recoletas');
+
+const spanMensagensTarefas = document.getElementById("span-mensagens-tarefas");
+const spanMensagensRecoletas = document.getElementById('span-mensagens-recoletas');
+
+
+//===================
+//FIM DAS DECLARAÇÕES
+
+//CRIAÇÃO DAS TAREFAS DIÁRIAS
+//===========================
+
+for (let i = 0; i < listaTarefasDiarias.length; i++) {
+  let tarefaDiaria = document.createElement("li");
+  listaTarefasPendentes.appendChild(tarefaDiaria);
+  tarefaDiaria.innerHTML = `<input type="checkbox" id="${listaTarefasDiarias[i]}"><label for="${listaTarefasDiarias[i]}">${listaTarefasDiarias[i]}</label>`;
+}
+
+//==================================
+//FIM DA CRIAÇÃO DAS TAREFAS DIÁRIAS
+
 
 //EVENT LISTENERS
+//===============
 
-btnAdicionarTarefa.addEventListener('click', pegarTarefa);
-
-inputNovaTarefa.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter')
-        pegarTarefa();
+btnAdicionarNovaTarefa.addEventListener("click", ()=>{
+	let input = inputNovaTarefa.value.trim();
+	obterValores(input, listaTarefasCriadas, listaTarefasPontuais, spanMensagensTarefas, divTarefasPontuais)
+	inputNovaTarefa.value = "";
+	inputNovaTarefa.focus();
 });
 
-btnLimparLista.addEventListener('click', limparLista);
-
-listaTarefasPontuais.addEventListener('change', (event) => {
-    let tarefaClicada = event.target.closest('li');
-    tarefaClicada.classList.toggle('tarefa-concluida');
+inputNovaTarefa.addEventListener("keydown", (event)=>{
+	if(event.key === 'Enter'){
+		let input = inputNovaTarefa.value.trim();
+		obterValores(input, listaTarefasCriadas, listaTarefasPontuais, spanMensagensTarefas, divTarefasPontuais)
+		inputNovaTarefa.value = "";
+		inputNovaTarefa.focus();
+	}
 });
 
-//GERAÇÃO DE TAREFAS FIXAS
+btnLimparListaTarefas.addEventListener('click', ()=>{
 
-arrayTarefasFixas.forEach(tarefa => {
-    const li = document.createElement('li');
-    li.innerHTML = `<input type="checkbox" id="tarefa-fixa-${arrayTarefasFixas.indexOf(tarefa)}"> <label for="tarefa-fixa-${arrayTarefasFixas.indexOf(tarefa)}">${tarefa}</label>`;
-    listaTarefasFixas.appendChild(li);
+console.log("CLIQUE NO BOTÃO DE TAREFAS");
+	
+	let confirmacao = confirm ('Deseja remover todos os itens?');
+	if(confirmacao){
+		limparLista(listaTarefasCriadas, listaTarefasPontuais, divTarefasPontuais);
+	}
 });
 
-//GERAÇÃO DE TAREFAS PONTUAIS
 
-//FUNÇÃO PARA PEGAR OS VALORES
-function pegarTarefa() {
-    let tarefa = inputNovaTarefa.value.trim();
-    if (arrayTarefasPontuais.includes(tarefa)) {
-        spanMensagensTarefas.classList.remove('sucesso');
-        spanMensagensTarefas.classList.add('erro');
-        setTimeout(() => {
-            spanMensagensTarefas.textContent = '';
-        }, 1000);
-        spanMensagensTarefas.textContent = 'Essa tarefa já foi adicionada!';
+btnAdicionarNovaColeta.addEventListener("click", ()=>{
+	let input = inputNovaColeta.value.trim();
+	if(!isNaN(input)){
+		obterValores(input, arrayRecoletas, listaRecoletas, spanMensagensRecoletas, divNovaColeta);
+		divNovaColeta.classList.remove('ocultar');	
+	}else{
+		spanMensagensRecoletas.textContent = 'Valor inválido!';
+		spanMensagensRecoletas.classList.remove('sucesso');
+		spanMensagensRecoletas.classList.add('erro');
+	}
+	inputNovaColeta.value = "";
+	inputNovaColeta.focus();
+});
 
-    } else if (tarefa !== '') {
-        arrayTarefasPontuais.push(tarefa);
-        spanMensagensTarefas.classList.remove('erro');
-        spanMensagensTarefas.classList.add('sucesso');
-        setTimeout(() => {
-            spanMensagensTarefas.textContent = '';
-        }, 1000);
-        spanMensagensTarefas.textContent = 'Tarefa adicionada com sucesso!';
-        renderizarTarefasPontuais();
-    } else {
-        spanMensagensTarefas.classList.remove('sucesso');
-        spanMensagensTarefas.classList.add('erro');
-        setTimeout(() => {
-            spanMensagensTarefas.textContent = '';
-        }, 1000);
-        spanMensagensTarefas.textContent = 'Digite uma tarefa válida!';
-    }
-    inputNovaTarefa.value = '';
-    inputNovaTarefa.focus();
+inputNovaColeta.addEventListener("keydown", (event)=>{
+	if(event.key === 'Enter'){
+		let input = inputNovaColeta.value.trim();
+		if(!isNaN(input)){
+			obterValores(input, arrayRecoletas, listaRecoletas, spanMensagensRecoletas, divNovaColeta);
+		}else{
+			spanMensagensRecoletas.textContent = 'Valor inválido!';
+			spanMensagensRecoletas.classList.remove('sucesso');
+			spanMensagensRecoletas.classList.add('erro');
+		}
+		inputNovaColeta.value = "";
+		inputNovaColeta.focus();
+	}
+});
+
+btnLimparListaRecoletas.addEventListener('click', ()=>{
+	let confirmacao = confirm ('Deseja remover todos os itens?');
+	if(confirmacao){
+		limparLista(arrayRecoletas, listaRecoletas, divNovaColeta);
+	}
+});
+
+listaTarefasPendentes.addEventListener('change', (event)=>{
+	if(event.target.type === 'checkbox'){
+		event.target.closest('li').classList.toggle('tarefa-concluida')
+	}
+});
+
+listaTarefasPontuais.addEventListener('change', (event)=>{
+	if(event.target.type === 'checkbox'){
+		event.target.closest('li').classList.toggle('tarefa-concluida')
+	}
+});
+
+listaRecoletas.addEventListener('change', (event)=>{
+	if(event.target.type === 'checkbox'){
+		event.target.closest('li').classList.toggle('tarefa-concluida');
+	}
+});
+
+
+
+//FIM DOS EVENT LISTENERS
+//=======================
+
+
+//FUNÇÕES ÚNICAS DE EXECUÇÃO TOTAL
+//================================
+function obterValores(input, array, lista, span, div) {
+	if(input === ""){
+		setTimeout(()=>{
+			span.textContent = "";
+		}, 3000);
+		span.textContent = 'Valor inválido!';
+		span.classList.remove('sucesso');
+		span.classList.add('erro');
+	}else if(array.includes(input)){
+		setTimeout(()=>{
+			span.textContent = "";
+		}, 3000);
+		span.classList.remove('sucesso');
+		span.classList.add('erro')
+		span.textContent = 'Valor já inserido!';
+	}else{
+		array.push(input);
+		div.classList.remove('ocultar');
+		setTimeout(()=>{
+			span.textContent = "";
+		}, 3000);
+		span.textContent = 'Adicionado com sucesso!';
+		span.classList.remove('erro');
+		span.classList.add('sucesso');
+	}
+	exibirValores(array, lista);
+}
+	
+
+function exibirValores(array, lista){
+	lista.textContent = "";
+	for (let i = 0; i < array.length; i++) {
+		let novoDado = document.createElement('li');
+		novoDado.innerHTML = `<label><input type="checkbox">&nbsp${array[i]}</label>`;
+		lista.appendChild(novoDado);
+	}
 }
 
-//RENDERIZAÇÃO DE TAREFAS PONTUAIS
+function limparLista(array, lista, div){
+	array.length = 0;
+	lista.textContent = "";
+	div.classList.add('ocultar');
 
-function renderizarTarefasPontuais() {
-    listaTarefasPontuais.innerHTML = '';
-    for (let i = 0; i < arrayTarefasPontuais.length; i++) {
-        const li = document.createElement('li');
-        li.setAttribute('class', `tarefa-pontual-${i}`);
-        li.setAttribute('class', `tarefa-criada`);
-        li.innerHTML = `<input type = "checkbox" id="tarefa-pontual-${i}"> <label for="tarefa-pontual-${i}">${arrayTarefasPontuais[i]}</label>`
-
-        const btnRemover = document.createElement('button');
-        btnRemover.setAttribute('class', 'btn-remover-tarefa');
-        btnRemover.textContent = 'Remover';
-        li.appendChild(btnRemover);
-        btnRemover.addEventListener('click', () => { removerTarefa(i); });
-        listaTarefasPontuais.appendChild(li);
-    }
-    arrayTarefasPontuais.length >= 3 ? btnLimparLista.classList.remove('ocultar') : btnLimparLista.classList.add('ocultar');
-    arrayTarefasPontuais.length > 0 ? divTarefasPontuais.classList.remove('ocultar') : divTarefasPontuais.classList.add('ocultar');
+	console.log("classes:", div.className);
+ console.log("display:", getComputedStyle(div).display);
 }
-
-//FUNÇÃO DE REMOÇÃO DE TAREFAS PONTUAIS E LIMPEZA DA LISTA
-
-function removerTarefa(index) {
-    arrayTarefasPontuais.splice(index, 1);
-    renderizarTarefasPontuais();
-}
-
-function limparLista() {
-    let confirmacao = confirm('Tem certeza que deseja limpar a lista de tarefas pontuais?');
-    if (confirmacao) {
-        arrayTarefasPontuais.length = 0;
-        renderizarTarefasPontuais();
-    }
-}
-
-
