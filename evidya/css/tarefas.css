@@ -1,75 +1,69 @@
-:root {
-    --verde-concluido: #026014;
-    --fundo-padrao: #e2e8f0;
-    --vermelho-erro: red;
+:root{
+  --verde-concluido: #026014;
+  --fundo-padrao: #e2e8f0;
+  --vermelho-erro: red;
 }
 
-.erro {
-    color: var(--vermelho-erro);
-    font-weight: bold;
+.ocultar{
+  display: none;
 }
 
-.sucesso {
-    color: var(--verde-concluido);
-    font-weight: bold;
+#section-tarefas{
+	 display: flex;
+  justify-content: space-between;
 }
 
-.tarefa-concluida {
-    color: var(--verde-concluido);
-    text-decoration: line-through;
+.card{
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 15px auto;
+  transition: 0.2s ease-in-out;
+  background-color: var(--fundo-padrao);
+}
+.card:hover{
+  transform: translateY(-5px);
+  transition: 0.2s ease-in-out;
+  box-shadow: 0px 2px 10px 0px black;
 }
 
-button,
-ul label,
-input[type="checkbox"] {
-    cursor: pointer;
+.div-tarefas{
+  text-align: center;
+  margin: 5px 15px;
+  width: 50%
 }
 
-.ocultar {
-    display: none;
+ul{
+  text-align: left;
+  list-style-type: none;
+  list-style-position: inside;
 }
 
-ul {
-    text-align: left;
-    list-style-type: none;
-    list-style-position: inside;
+li{
+  margin: 5px auto;
+  font-size: 1.1rem;
 }
 
-li {
-    margin: 5px auto;
-    font-size: 1.1rem;
+#btn-limpar-lista{
+  margin: 5px auto;
+  padding: 5px;
 }
 
-
-#tarefas-diarias {
-    display: flex;
-    justify-content: space-around;
-    border: 2px solid black;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 15px auto;
-    transition: 0.2s ease-in-out;
-    background-color: var(--fundo-padrao);
-    text-align: center;
+button, ul label, input[type="checkbox"]{
+  cursor: pointer;
 }
 
-#tarefas-diarias:hover {
-    background-color: var(--branco-hover);
-    border: 1px solid black;
-    transform: translateY(-5px);
-    transition: 0.2s ease-in-out;
-    box-shadow: 0px 2px 10px 0px black;
+.tarefa-concluida{
+  color: var(--verde-concluido);
+  text-decoration: line-through;
 }
 
-.div-tarefas {
-    margin: 5px 15px;
-    width: 50%
+.erro{
+  color: var(--vermelho-erro);
+  font-weight: bold;
 }
-
-#tarefas-fixas,
-#tarefas-pontuais {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.sucesso{
+  color: var(--verde-concluido);
+  font-weight: bold;
 }
