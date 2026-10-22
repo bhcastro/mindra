@@ -1,18 +1,13 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../css/tarefas.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/tarefas.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
   </head>
   <body>
-    <header>
-      <div>
-        <h1>Olá, usuário!</h1>
-        <p>Acompanhe o que precisa de sua atenção.</p>
-      </div>
-    </header>
     <main>
       <div id="div-nova-tarefa">
         <label for="input-nova-tarefa">Nova tarefa:</label>
@@ -38,7 +33,7 @@
         <label for="input-nova-coleta">Nova coleta:</label>
         <input type="text" id="input-nova-coleta" placeholder="Digite..." />
         <button type="button" id="btn-adicionar-nova-coleta">Adicionar</button>
-							        <br>
+        <br>
         <span id="span-mensagens-recoletas"></span>
       </div>
       <div id="div-recoletas" class="div-tarefas card ocultar">
@@ -49,6 +44,7 @@
         </button>
       </div>
     </main>
-    <script src="./script.js"></script>
+    <script src="../js/dashboard/tarefas-dashboard.js"></script>
+    <script src="../js/header.js"></script>
   </body>
 </html>

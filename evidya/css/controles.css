@@ -27,7 +27,7 @@ hr {
     box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
 }
 
-header {
+#header {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -36,13 +36,13 @@ header {
     background-color: var(--sombra-hover);
 }
 
-header h1,
-header p {
+#header h1,
+#header p {
     padding: 5px;
     margin: 5px;
 }
 
-header p {
+#header p {
     color: var(--texto-secundario);
     font-size: 1.2rem;
 }
