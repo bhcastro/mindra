@@ -2,12 +2,12 @@
 //===========
 
 const listaTarefasDiarias = [
-  "Temperaturas",
-  "Manutenções",
-  "Controles",
-  "Separar Repro",
-  "Limpar bancada",
-  "Desprezar Soroteca"
+	"Temperaturas",
+	"Manutenções",
+	"Controles",
+	"Separar Repro",
+	"Limpar bancada",
+	"Desprezar Soroteca"
 ];
 const listaTarefasCriadas = [];
 const arrayRecoletas = [];
@@ -40,9 +40,9 @@ const spanMensagensRecoletas = document.getElementById('span-mensagens-recoletas
 //===========================
 
 for (let i = 0; i < listaTarefasDiarias.length; i++) {
-  let tarefaDiaria = document.createElement("li");
-  listaTarefasPendentes.appendChild(tarefaDiaria);
-  tarefaDiaria.innerHTML = `<input type="checkbox" id="${listaTarefasDiarias[i]}"><label for="${listaTarefasDiarias[i]}">${listaTarefasDiarias[i]}</label>`;
+	let tarefaDiaria = document.createElement("li");
+	listaTarefasPendentes.appendChild(tarefaDiaria);
+	tarefaDiaria.innerHTML = `<input type="checkbox" id="${listaTarefasDiarias[i]}"><label for="${listaTarefasDiarias[i]}">${listaTarefasDiarias[i]}</label>`;
 }
 
 //==================================
@@ -52,15 +52,15 @@ for (let i = 0; i < listaTarefasDiarias.length; i++) {
 //EVENT LISTENERS
 //===============
 
-btnAdicionarNovaTarefa.addEventListener("click", ()=>{
+btnAdicionarNovaTarefa.addEventListener("click", () => {
 	let input = inputNovaTarefa.value.trim();
 	obterValores(input, listaTarefasCriadas, listaTarefasPontuais, spanMensagensTarefas, divTarefasPontuais)
 	inputNovaTarefa.value = "";
 	inputNovaTarefa.focus();
 });
 
-inputNovaTarefa.addEventListener("keydown", (event)=>{
-	if(event.key === 'Enter'){
+inputNovaTarefa.addEventListener("keydown", (event) => {
+	if (event.key === 'Enter') {
 		let input = inputNovaTarefa.value.trim();
 		obterValores(input, listaTarefasCriadas, listaTarefasPontuais, spanMensagensTarefas, divTarefasPontuais)
 		inputNovaTarefa.value = "";
@@ -68,23 +68,23 @@ inputNovaTarefa.addEventListener("keydown", (event)=>{
 	}
 });
 
-btnLimparListaTarefas.addEventListener('click', ()=>{
+btnLimparListaTarefas.addEventListener('click', () => {
 
-console.log("CLIQUE NO BOTÃO DE TAREFAS");
-	
-	let confirmacao = confirm ('Deseja remover todos os itens?');
-	if(confirmacao){
+	console.log("CLIQUE NO BOTÃO DE TAREFAS");
+
+	let confirmacao = confirm('Deseja remover todos os itens?');
+	if (confirmacao) {
 		limparLista(listaTarefasCriadas, listaTarefasPontuais, divTarefasPontuais);
 	}
 });
 
 
-btnAdicionarNovaColeta.addEventListener("click", ()=>{
+btnAdicionarNovaColeta.addEventListener("click", () => {
 	let input = inputNovaColeta.value.trim();
-	if(!isNaN(input)){
+	if (!isNaN(input)) {
 		obterValores(input, arrayRecoletas, listaRecoletas, spanMensagensRecoletas, divNovaColeta);
-		divNovaColeta.classList.remove('ocultar');	
-	}else{
+		divNovaColeta.classList.remove('ocultar');
+	} else {
 		spanMensagensRecoletas.textContent = 'Valor inválido!';
 		spanMensagensRecoletas.classList.remove('sucesso');
 		spanMensagensRecoletas.classList.add('erro');
@@ -93,12 +93,12 @@ btnAdicionarNovaColeta.addEventListener("click", ()=>{
 	inputNovaColeta.focus();
 });
 
-inputNovaColeta.addEventListener("keydown", (event)=>{
-	if(event.key === 'Enter'){
+inputNovaColeta.addEventListener("keydown", (event) => {
+	if (event.key === 'Enter') {
 		let input = inputNovaColeta.value.trim();
-		if(!isNaN(input)){
+		if (!isNaN(input)) {
 			obterValores(input, arrayRecoletas, listaRecoletas, spanMensagensRecoletas, divNovaColeta);
-		}else{
+		} else {
 			spanMensagensRecoletas.textContent = 'Valor inválido!';
 			spanMensagensRecoletas.classList.remove('sucesso');
 			spanMensagensRecoletas.classList.add('erro');
@@ -108,27 +108,27 @@ inputNovaColeta.addEventListener("keydown", (event)=>{
 	}
 });
 
-btnLimparListaRecoletas.addEventListener('click', ()=>{
-	let confirmacao = confirm ('Deseja remover todos os itens?');
-	if(confirmacao){
+btnLimparListaRecoletas.addEventListener('click', () => {
+	let confirmacao = confirm('Deseja remover todos os itens?');
+	if (confirmacao) {
 		limparLista(arrayRecoletas, listaRecoletas, divNovaColeta);
 	}
 });
 
-listaTarefasPendentes.addEventListener('change', (event)=>{
-	if(event.target.type === 'checkbox'){
+listaTarefasPendentes.addEventListener('change', (event) => {
+	if (event.target.type === 'checkbox') {
 		event.target.closest('li').classList.toggle('tarefa-concluida')
 	}
 });
 
-listaTarefasPontuais.addEventListener('change', (event)=>{
-	if(event.target.type === 'checkbox'){
+listaTarefasPontuais.addEventListener('change', (event) => {
+	if (event.target.type === 'checkbox') {
 		event.target.closest('li').classList.toggle('tarefa-concluida')
 	}
 });
 
-listaRecoletas.addEventListener('change', (event)=>{
-	if(event.target.type === 'checkbox'){
+listaRecoletas.addEventListener('change', (event) => {
+	if (event.target.type === 'checkbox') {
 		event.target.closest('li').classList.toggle('tarefa-concluida');
 	}
 });
@@ -142,24 +142,24 @@ listaRecoletas.addEventListener('change', (event)=>{
 //FUNÇÕES ÚNICAS DE EXECUÇÃO TOTAL
 //================================
 function obterValores(input, array, lista, span, div) {
-	if(input === ""){
-		setTimeout(()=>{
+	if (input === "") {
+		setTimeout(() => {
 			span.textContent = "";
 		}, 3000);
 		span.textContent = 'Valor inválido!';
 		span.classList.remove('sucesso');
 		span.classList.add('erro');
-	}else if(array.includes(input)){
-		setTimeout(()=>{
+	} else if (array.includes(input)) {
+		setTimeout(() => {
 			span.textContent = "";
 		}, 3000);
 		span.classList.remove('sucesso');
 		span.classList.add('erro')
 		span.textContent = 'Valor já inserido!';
-	}else{
+	} else {
 		array.push(input);
 		div.classList.remove('ocultar');
-		setTimeout(()=>{
+		setTimeout(() => {
 			span.textContent = "";
 		}, 3000);
 		span.textContent = 'Adicionado com sucesso!';
@@ -168,9 +168,9 @@ function obterValores(input, array, lista, span, div) {
 	}
 	exibirValores(array, lista);
 }
-	
 
-function exibirValores(array, lista){
+
+function exibirValores(array, lista) {
 	lista.textContent = "";
 	for (let i = 0; i < array.length; i++) {
 		let novoDado = document.createElement('li');
@@ -179,11 +179,11 @@ function exibirValores(array, lista){
 	}
 }
 
-function limparLista(array, lista, div){
+function limparLista(array, lista, div) {
 	array.length = 0;
 	lista.textContent = "";
 	div.classList.add('ocultar');
 
 	console.log("classes:", div.className);
- console.log("display:", getComputedStyle(div).display);
+	console.log("display:", getComputedStyle(div).display);
 }
